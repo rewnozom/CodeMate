@@ -41,6 +41,3 @@
 ⏳ **Sparar tid** – Automatiserar underhåll och testkör så att du kan fokusera på viktigare saker som vilka funktioner som faktiskt ska implementeras.  
 💡 **CodeMate är som en utvecklarkompis som både fixar buggar och bygger nya funktioner åt dig!**  
 
----
-
-Vill du att jag ska börja utveckla detta? 🚀🎯
