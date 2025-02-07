@@ -41,3 +41,59 @@
 ⏳ **Sparar tid** – Automatiserar underhåll och testkör så att du kan fokusera på viktigare saker som vilka funktioner som faktiskt ska implementeras.  
 💡 **CodeMate är som en utvecklarkompis som både fixar buggar och bygger nya funktioner åt dig!**  
 
+
+
+```mermaid
+
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#2196F3',
+    'primaryTextColor': '#FFFFFF',
+    'primaryBorderColor': '#1976D2',
+    'lineColor': '#1976D2',
+    'secondaryColor': '#BBDEFB',
+    'tertiaryColor': '#E3F2FD'
+  }
+}}%%
+erDiagram
+    AgentCoordinator ||--|{ WorkflowManager : "manages"
+    AgentCoordinator ||--|{ FileSystemNavigator : "uses"
+    AgentCoordinator ||--|{ UserInterface : "interacts"
+    AgentCoordinator }|--|{ StateManager : "updates"
+    
+    WorkflowManager ||--|{ TaskPlanner : "creates"
+    WorkflowManager ||--|{ ProgressTracker : "monitors"
+    WorkflowManager ||--|{ ChecklistManager : "manages"
+    WorkflowManager }|--|{ StateManager : "reports to"
+    
+    FileSystemNavigator ||--|{ FileAnalyzer : "uses"
+    FileSystemNavigator ||--|{ WorkspaceScanner : "utilizes"
+    FileAnalyzer }|--|{ TaskPlanner : "informs"
+    
+    TaskPlanner ||--|{ TestManager : "coordinates"
+    TaskPlanner ||--|{ ImplementationValidator : "verifies"
+    TaskPlanner }|--|{ WorkflowManager : "updates"
+    
+    TestManager ||--|{ TestResultAnalyzer : "processes"
+    TestManager }|--|{ ImplementationValidator : "provides feedback"
+    TestResultAnalyzer }|--|{ TaskPlanner : "triggers updates"
+    
+    ChecklistManager ||--|{ TaskStatus : "tracks"
+    ChecklistManager ||--|{ TemporaryStorage : "uses"
+    TaskStatus }|--|{ StateManager : "updates"
+    
+    ImplementationValidator ||--|{ FrontendValidator : "validates"
+    ImplementationValidator ||--|{ BackendValidator : "validates"
+    ImplementationValidator }|--|{ TestManager : "requests tests"
+    
+    UserInterface ||--|{ RequestHandler : "processes"
+    UserInterface ||--|{ ResponseFormatter : "formats"
+    RequestHandler }|--|{ AgentCoordinator : "triggers"
+    ResponseFormatter }|--|{ UserInterface : "updates"
+    
+    StateManager }|--|{ AgentCoordinator : "triggers next action"
+    StateManager }|--|{ UserInterface : "updates status"
+
+```
+
