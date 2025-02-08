@@ -1,0 +1,4 @@
+# requirements/prod.txt
+-r base.txt
+gunicorn>=20.1.0
+uvicorn>=0.15.0

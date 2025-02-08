@@ -1,0 +1,36 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  agent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./workspace:/app/workspace
+      - ./logs:/app/logs
+      - ./config:/app/config
+    environment:
+      - PYTHONPATH=/app
+      - WORKSPACE_PATH=/app/workspace
+    ports:
+      - "8000:8000"  # If needed for API
+    networks:
+      - agent_network
+
+  lm-studio:  # Optional local LLM service
+    image: lmstudio/lmstudio:latest
+    ports:
+      - "1234:1234"
+    volumes:
+      - ./models:/models
+    environment:
+      - MODEL_PATH=/models
+    networks:
+      - agent_network
+
+networks:
+  agent_network:
+    driver: bridge
+
+

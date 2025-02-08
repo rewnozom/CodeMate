@@ -1,0 +1,8 @@
+# Local configuration
+config/local.yaml
+*.local.yaml
+
+# Temporary files
+*.log
+*.tmp
+*.temp

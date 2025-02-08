@@ -1,0 +1,25 @@
+# config/production.yaml
+# Production environment configuration
+
+# Inherit from default configuration
+inherit: default.yaml
+
+# Override specific settings
+general:
+  debug_mode: false
+  log_level: "WARNING"
+
+llm:
+  temperature: 0.7
+
+validation:
+  strict_mode: true
+  auto_fix: false
+
+storage:
+  compression: true
+  backup_enabled: true
+  max_backups: 10
+
+monitoring:
+  metrics_interval: 30

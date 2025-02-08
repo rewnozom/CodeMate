@@ -1,0 +1,17 @@
+# config/development.yaml
+# Development environment configuration
+
+# Inherit from default configuration
+inherit: default.yaml
+
+# Override specific settings
+general:
+  debug_mode: true
+  log_level: "DEBUG"
+
+llm:
+  temperature: 0.8
+
+validation:
+  strict_mode: true
+  auto_fix: false

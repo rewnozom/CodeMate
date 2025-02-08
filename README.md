@@ -97,3 +97,31 @@ erDiagram
 
 ```
 
+
+# The application defines commands such as `start`, `process`, and `status`. When you run:
+
+```bash
+python src/main.py
+```
+
+Typer expects you to specify one of these commands. For example, you could run:
+
+```bash
+python src/main.py start
+```
+
+to start the agent in interactive mode, or:
+
+```bash
+python src/main.py process "your request here"
+```
+
+to process a single request.
+
+To see all available commands and options, run:
+
+```bash
+python src/main.py --help
+```
+
+This will display usage instructions and help information.

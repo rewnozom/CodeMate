@@ -1,0 +1,29 @@
+# config/prompts/error_prompts.yaml
+error_analysis:
+  content: |
+    Analyze the following error and provide:
+    1. Root cause analysis
+    2. Potential solutions
+    3. Prevention strategies
+
+    Error details:
+    {error_message}
+    Context: {context}
+  variables: ["error_message", "context"]
+  description: "Prompt for error analysis"
+  category: "error"
+  version: "1.0"
+
+error_recovery:
+  content: |
+    Suggest recovery steps for the following error:
+    1. Immediate actions
+    2. Data/state recovery
+    3. Validation steps
+
+    Error: {error}
+    Current state: {state}
+  variables: ["error", "state"]
+  description: "Prompt for error recovery"
+  category: "error"
+  version: "1.0"

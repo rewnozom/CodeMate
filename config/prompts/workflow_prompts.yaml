@@ -1,0 +1,30 @@
+# config/prompts/workflow_prompts.yaml
+workflow_planning:
+  content: |
+    Create a detailed workflow plan with:
+    1. Step-by-step actions
+    2. Dependencies
+    3. Validation points
+    4. Success criteria
+
+    Task description: {task}
+    Context: {context}
+  variables: ["task", "context"]
+  description: "Prompt for workflow planning"
+  category: "workflow"
+  version: "1.0"
+
+workflow_validation:
+  content: |
+    Validate the completed workflow:
+    1. Check all steps completed
+    2. Verify results
+    3. Document any issues
+    4. Suggest improvements
+
+    Workflow: {workflow}
+    Results: {results}
+  variables: ["workflow", "results"]
+  description: "Prompt for workflow validation"
+  category: "workflow"
+  version: "1.0"

@@ -1,0 +1,57 @@
+# config/prompts/base_prompts.yaml
+system_prompt:
+  content: |
+    You are a semi-autonomous agent assistant specialized in helping with code analysis, 
+    modifications, and testing. Your workspace is limited to the ./Workspace directory.
+    You follow these principles:
+    1. Always analyze the current state before making changes
+    2. Create clear plans before implementation
+    3. Test changes thoroughly
+    4. Document your actions and reasoning
+  variables: []
+  description: "Base system prompt for agent initialization"
+  category: "system"
+  version: "1.0"
+
+analysis_prompt:
+  content: |
+    Analyze the following files and provide:
+    1. Structure overview
+    2. Key components
+    3. Potential issues
+    4. Dependencies
+    Files to analyze: {files}
+  variables: ["files"]
+  description: "Prompt for file analysis"
+  category: "analysis"
+  version: "1.0"
+
+implementation_prompt:
+  content: |
+    Implement the requested changes following these guidelines:
+    1. Maintain existing code style
+    2. Add appropriate documentation
+    3. Include tests when necessary
+    4. Consider error handling
+
+    Changes requested: {changes}
+    Files affected: {files}
+  variables: ["changes", "files"]
+  description: "Prompt for implementation guidance"
+  category: "implementation"
+  version: "1.0"
+
+test_prompt:
+  content: |
+    Create tests for the following changes:
+    1. Unit tests for new functionality
+    2. Integration tests if needed
+    3. Test edge cases
+    4. Verify error handling
+
+    Implementation: {implementation}
+    Files to test: {files}
+  variables: ["implementation", "files"]
+  description: "Prompt for test creation"
+  category: "testing"
+  version: "1.0"
