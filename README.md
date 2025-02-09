@@ -1,8 +1,6 @@
 
 
-# Roadmap.md for CodeMate-projektet 🚀
-
----
+# Roadmap för CodeMate 🚀
 
 ## Översikt
 
