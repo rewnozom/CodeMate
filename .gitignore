@@ -1,5 +1,8 @@
 # .gitignore
-# Python
+
+# ---------------------------
+# 🐍 Python & Virtual Environments
+# ---------------------------
 __pycache__/
 *.py[cod]
 *$py.class
@@ -21,13 +24,16 @@ wheels/
 .installed.cfg
 *.egg
 
-# Virtual Environment
+# Virtual Environment (common names)
 venv/
+.venv/
 env/
 ENV/
 .env
 
-# IDE
+# ---------------------------
+# 🛠 IDE / Editor Config Files
+# ---------------------------
 .idea/
 .vscode/
 *.swp
@@ -35,12 +41,37 @@ ENV/
 *.swn
 .DS_Store
 
-# Project specific
+# ---------------------------
+# 🔧 Project-specific Files
+# ---------------------------
 logs/
+logs/*.log  # Ignore all log files
 temp/
+output/     # Ignore all generated output files
 workspace/*
-!workspace/.gitkeep
+!workspace/.gitkeep  # Keep workspace folder but ignore contents
+
+# ---------------------------
+# ✅ Testing & Coverage Reports
+# ---------------------------
 .coverage
 coverage.xml
 htmlcov/
 .pytest_cache/
+pytest_debug.log
+
+# ---------------------------
+# 🚀 Node.js / Frontend (if applicable)
+# ---------------------------
+node_modules/
+package-lock.json
+yarn.lock
+
+# ---------------------------
+# 🔍 Miscellaneous
+# ---------------------------
+*.bak  # Backup files
+*.tmp  # Temporary files
+*.swp  # Swap files from editors
+*.log  # Any log files
+*.out  # Output binary files

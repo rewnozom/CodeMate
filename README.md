@@ -355,4 +355,3 @@ python scripts/setup.py setupenv
 This will:
 - Install development dependencies from `requirements/dev.txt`
 - Create directories: `logs/`, `temp/`, `workspace/`, etc.
-
