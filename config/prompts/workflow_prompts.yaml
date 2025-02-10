@@ -1,30 +1,32 @@
 # config/prompts/workflow_prompts.yaml
+# Workflow prompts providing step-by-step guidance for planning and validating workflows
+
 workflow_planning:
   content: |
-    Create a detailed workflow plan with:
-    1. Step-by-step actions
-    2. Dependencies
-    3. Validation points
-    4. Success criteria
-
+    Develop a comprehensive workflow plan that includes the following:
+      1. A clear, step-by-step description of all actions to be taken.
+      2. Identification of all dependencies between steps.
+      3. Specific validation checkpoints to ensure each step is executed correctly.
+      4. Clear objectives and measurable success criteria for the entire process.
+      5. A detailed risk analysis along with recommended mitigation measures.
     Task description: {task}
     Context: {context}
   variables: ["task", "context"]
-  description: "Prompt for workflow planning"
+  description: "Prompt for creating a detailed workflow plan with clear steps, dependencies, and validation points."
   category: "workflow"
-  version: "1.0"
+  version: "2.0"
 
 workflow_validation:
   content: |
-    Validate the completed workflow:
-    1. Check all steps completed
-    2. Verify results
-    3. Document any issues
-    4. Suggest improvements
-
+    Review the completed workflow and provide a detailed validation report that covers:
+      1. Verification that all steps have been successfully completed.
+      2. Confirmation that the results meet the specified requirements and objectives.
+      3. Identification of any discrepancies or issues within the workflow.
+      4. Recommendations for improvements and risk minimization.
+      5. Suggestions for additional tests or inspections if needed.
     Workflow: {workflow}
     Results: {results}
   variables: ["workflow", "results"]
-  description: "Prompt for workflow validation"
+  description: "Prompt for validating a workflow with a focus on completeness, accuracy, and improvement recommendations."
   category: "workflow"
-  version: "1.0"
+  version: "2.0"

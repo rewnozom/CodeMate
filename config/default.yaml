@@ -1,19 +1,16 @@
 # config/default.yaml
 # Default configuration for semi-autonomous agent
 
-# General Settings
 general:
   workspace_path: "./Workspace"
   max_files_per_scan: 10
   debug_mode: false
   log_level: "INFO"
 
-# LLM Settings
 llm:
   default_provider: "lm_studio"
-  context_window: 60000
-  temperature: 0.7
-  max_tokens: 60000
+  # The following LLM variables will be loaded from .env (e.g., CONTEXT_WINDOW, TEMPERATURE)
+  # context_window, temperature, and max_tokens are controlled via .env.
   providers:
     lm_studio:
       base_url: "http://localhost:1234/v1"
@@ -25,7 +22,6 @@ llm:
       model: "gpt-4"
       timeout: 300
 
-# Agent Settings
 agent:
   auto_test: true
   max_retries: 3
@@ -35,22 +31,18 @@ agent:
     working_memory_limit: 50
     long_term_limit: 1000
 
-# Storage Settings
 storage:
   format: "json"
   compression: false
   backup_enabled: true
   max_backups: 5
 
-# Validation Settings
 validation:
   strict_mode: false
   auto_fix: true
   test_timeout: 30
 
-# Monitoring Settings
 monitoring:
   enabled: true
   metrics_interval: 60
   log_metrics: true
-

@@ -1,57 +1,62 @@
 # config/prompts/base_prompts.yaml
+# Base prompts for the system with comprehensive guidance
+
 system_prompt:
   content: |
-    You are a semi-autonomous agent assistant specialized in helping with code analysis, 
-    modifications, and testing. Your workspace is limited to the ./Workspace directory.
-    You follow these principles:
-    1. Always analyze the current state before making changes
-    2. Create clear plans before implementation
-    3. Test changes thoroughly
-    4. Document your actions and reasoning
+    You are a semi-autonomous agent assistant specialized in code analysis, modification, and testing.
+    Your workspace is strictly limited to the "./Workspace" directory.
+    Follow these principles meticulously:
+      1. Thoroughly analyze the current code and context before making any modifications.
+      2. Develop clear, step-by-step plans prior to implementation.
+      3. Implement changes while preserving the existing code style and structure.
+      4. Rigorously test all modifications using unit and integration tests.
+      5. Document your decisions, changes, and underlying reasoning in detail.
+      6. If an error occurs, perform a detailed analysis and propose concrete recovery actions.
+    Always maintain awareness of the system’s state and context when deciding on your actions.
   variables: []
-  description: "Base system prompt for agent initialization"
+  description: "Base system prompt for agent initialization with detailed behavior guidelines."
   category: "system"
-  version: "1.0"
+  version: "2.0"
 
 analysis_prompt:
   content: |
-    Analyze the following files and provide:
-    1. Structure overview
-    2. Key components
-    3. Potential issues
-    4. Dependencies
+    Analyze the following files thoroughly and provide a detailed report that includes:
+      1. A high-level overview of the structure and architecture.
+      2. Identification of key components and module dependencies.
+      3. Potential issues, risks, or areas for improvement.
+      4. Specific recommendations for immediate actions and long-term enhancements.
+      5. Suggestions for further testing or analysis.
     Files to analyze: {files}
   variables: ["files"]
-  description: "Prompt for file analysis"
+  description: "Detailed prompt for file analysis requiring a comprehensive report."
   category: "analysis"
-  version: "1.0"
+  version: "2.0"
 
 implementation_prompt:
   content: |
-    Implement the requested changes following these guidelines:
-    1. Maintain existing code style
-    2. Add appropriate documentation
-    3. Include tests when necessary
-    4. Consider error handling
-
-    Changes requested: {changes}
-    Files affected: {files}
+    Implement the requested changes by adhering to these guidelines:
+      1. Analyze the existing codebase and preserve the current coding style.
+      2. Add detailed documentation and inline comments to explain your changes.
+      3. Develop comprehensive unit tests and, if necessary, integration tests to validate the modifications.
+      4. Incorporate robust error handling to manage unexpected situations.
+      5. Provide a detailed report outlining the changes, the rationale behind your decisions, and any assumptions made.
+    Requested changes: {changes}
+    Affected files: {files}
   variables: ["changes", "files"]
-  description: "Prompt for implementation guidance"
+  description: "Prompt for implementation with detailed instructions and documentation requirements."
   category: "implementation"
-  version: "1.0"
+  version: "2.0"
 
 test_prompt:
   content: |
-    Create tests for the following changes:
-    1. Unit tests for new functionality
-    2. Integration tests if needed
-    3. Test edge cases
-    4. Verify error handling
-
-    Implementation: {implementation}
+    Develop a comprehensive test suite to validate the implemented changes. Your test plan should include:
+      1. Unit tests covering all new functionality and logical branches.
+      2. Integration tests to ensure proper interaction between modules.
+      3. Test cases for edge scenarios and error handling.
+      4. A summary of test results and any observed anomalies.
+    Implementation details: {implementation}
     Files to test: {files}
   variables: ["implementation", "files"]
-  description: "Prompt for test creation"
+  description: "Prompt for creating a full test suite with detailed validation criteria."
   category: "testing"
-  version: "1.0"
+  version: "2.0"

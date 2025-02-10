@@ -1,16 +1,15 @@
 # config/development.yaml
-# Development environment configuration
-
-# Inherit from default configuration
 inherit: default.yaml
 
-# Override specific settings
 general:
   debug_mode: true
   log_level: "DEBUG"
 
 llm:
-  temperature: 0.8
+  # Optionally override non-sensitive LLM settings here
+  # Note: Temperature and similar variables are loaded from .env
+  prompt_optimizer:
+    optimization_factor: 0.9
 
 validation:
   strict_mode: true

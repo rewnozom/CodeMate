@@ -1,17 +1,14 @@
 # config/production.yaml
-# Production environment configuration
-
-# Inherit from default configuration
 inherit: default.yaml
 
-# Override specific settings
 general:
   debug_mode: false
   log_level: "WARNING"
 
 llm:
-  temperature: 0.7
-
+  # Temperature and similar sensitive variables remain under .env control.
+  # Production-specific overrides can be added here if necessary.
+  
 validation:
   strict_mode: true
   auto_fix: false

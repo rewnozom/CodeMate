@@ -1,29 +1,30 @@
 # config/prompts/error_prompts.yaml
+# Error prompts for in-depth error analysis and recovery with detailed guidance
+
 error_analysis:
   content: |
-    Analyze the following error and provide:
-    1. Root cause analysis
-    2. Potential solutions
-    3. Prevention strategies
-
-    Error details:
-    {error_message}
+    Analyze the following error message and provide a comprehensive report that includes:
+      1. A detailed root cause analysis identifying all relevant factors and contextual issues.
+      2. Concrete recommendations for immediate corrective actions.
+      3. Long-term prevention strategies to avoid similar errors in the future.
+      4. Suggestions for additional tests or monitoring to ensure system stability.
+    Error details: {error_message}
     Context: {context}
   variables: ["error_message", "context"]
-  description: "Prompt for error analysis"
+  description: "Prompt for detailed error analysis, including both immediate fixes and long-term prevention."
   category: "error"
-  version: "1.0"
+  version: "2.0"
 
 error_recovery:
   content: |
-    Suggest recovery steps for the following error:
-    1. Immediate actions
-    2. Data/state recovery
-    3. Validation steps
-
+    Propose a detailed recovery plan to restore the system to a functional state. Your plan should include:
+      1. Immediate actions to stabilize the system.
+      2. Steps to recover data or state if necessary.
+      3. Validation measures to confirm the success of the recovery.
+      4. Recommendations for follow-up tests and monitoring to prevent future issues.
     Error: {error}
     Current state: {state}
   variables: ["error", "state"]
-  description: "Prompt for error recovery"
+  description: "Prompt for detailed error recovery steps, covering both immediate stabilization and long-term solutions."
   category: "error"
-  version: "1.0"
+  version: "2.0"
