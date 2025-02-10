@@ -1,311 +1,358 @@
+# **Roadmap for CodeMate 🚀**
 
+## Overview
 
-# Roadmap för CodeMate 🚀
+CodeMate aims to deliver a **robust, scalable, and efficient** platform with a focus on:
 
-## Översikt
+### **Core Components:**
+- **AgentCoordinator**
+- **WorkflowManager**
+- **StateManager**
+- **MemoryManager**
 
-CodeMate ska leverera en robust, skalbar och effektiv plattform med fokus på:
+### **Missing Modules (To Be Built from Scratch):**
+- **LLM Integration Module**
+- **Code Generation Module**
+- **Project Analysis Module**
+- **Code Analysis API**
+- **Validation Strategies & Dynamic Rule Generation**
+- **Context Priority & Persistence System**
 
-- **Core Components:**  
-  - *AgentCoordinator*  
-  - *WorkflowManager*  
-  - *StateManager*  
-  - *MemoryManager*
+### **Critical Integrations:**
+- **Event System Integration** (including persistence, filtering & routing)
+- **Memory System Integration**
+- **Validation System Integration**
+- **Central Integration Layer**
 
-- **Saknade Moduler (bygga från grunden):**  
-  - LLM Integration Module  
-  - Code Generation Module  
-  - Project Analysis Module  
-  - Code Analysis API  
-  - Validation Strategies & Dynamic Rule Generation  
-  - Context Priority & Persistence System
-
-- **Kritiska Integrationer:**  
-  - Event System Integration (inkl. persistence, filtering & routing)  
-  - Memory System Integration  
-  - Validation System Integration  
-  - Central Integration Layer
-
-- **Ytterligare Funktioner & Optimeringar:**  
-  - Request Validation (med rate limiting & prioritering)  
-  - Memory Optimization & Indexing  
-  - Template Management System  
-  - Task Orchestration, ResourceMonitor, DependencyGraph, MilestoneTracker och TaskEventBus
+### **Additional Features & Optimizations:**
+- **Request Validation** (with rate limiting & prioritization)
+- **Memory Optimization & Indexing**
+- **Template Management System**
+- **Task Orchestration, ResourceMonitor, DependencyGraph, MilestoneTracker, and TaskEventBus**
 
 ---
 
-## Prioriteringsordning
+## **Priority Order**
 
-- 🔴 **Hög Prioritet:** Kritiska funktioner som måste implementeras först.  
-- 🟡 **Medel Prioritet:** Förbättrar integration, prestanda och robusthet.  
-- 🔵 **Låg Prioritet:** Avancerade funktioner och optimeringar som kan byggas ut senare.
-
----
-
-## Fas 1 – Kärnfunktionalitet (Hög Prioritet) 🔴
-
-- **AgentCoordinator:**  
-  - Implementera **LLM Integration Module** för AI-assisterade operationer.  
-  - Förbättra felhantering med återhämtningsstrategier (Error Recovery).  
-  - Införa **Task Orchestration** för att koordinera komplexa uppgifter.
-
-- **WorkflowManager:**  
-  - Fullständig implementation av workflow-steg:  
-    - Filanalys  
-    - Planering  
-    - Implementation  
-    - Testning  
-    - Validering  
-    - Användarinteraktion  
-  - Införa **workflow templates** & **checkpointing**.
-
-- **StateManager:**  
-  - Införa strikt **state transition validation** för att förhindra ogiltiga övergångar.  
-  - Implementera rollback-funktioner och **state persistence** (med historikstädning).
-
-- **Event System:**  
-  - Koppla samman eventhantering mellan alla kärnkomponenter.  
-  - Införa **Event Persistence** samt grundläggande filtering och routing.
-
-- **Request Validation:**  
-  - Implementera ett robust **Request Validation System** (struktur, innehåll, rate limiting och prioritering).
+- 🔴 **High Priority:** Critical features that must be implemented first.
+- 🟡 **Medium Priority:** Enhancements for integration, performance, and robustness.
+- 🔵 **Low Priority:** Advanced features and optimizations that can be developed later.
 
 ---
 
-## Fas 2 – Utökad Integration (Medel Prioritet) 🟡
+## **Phase 1 – Core Functionality (High Priority) 🔴**
 
-- **Saknade Moduler:**  
-  - **Code Generation Module:** Automatisk kodgenerering med syntaxvalidering och stilformatering.  
-  - **Project Analysis Module:** Analysera projektstruktur med dependency graphs, kodmetrik och mönsterdetektion.  
-  - **Code Analysis API:** Djupare kodanalys, metrikberäkning och identifiering av kodproblem.
+### **AgentCoordinator**
+- Implement the **LLM Integration Module** for AI-assisted operations.
+- Improve error handling with **Error Recovery** strategies.
+- Introduce **Task Orchestration** to coordinate complex tasks.
 
-- **Memory & Context:**  
-  - **Memory System Integration:** Koppla MemoryManager med ContextManager och WorkflowManager för långsiktig persistens och optimering.  
-  - **Context Priority & Persistence:** Införa prioriteringslogik och lagring för relevanta kontextdata.
+### **WorkflowManager**
+- Complete implementation of workflow stages:
+  - File Analysis
+  - Planning
+  - Implementation
+  - Testing
+  - Validation
+  - User Interaction
+- Introduce **workflow templates** & **checkpointing**.
 
-- **Validation:**  
-  - Utveckla **Validation Coordinator** med en **Rule Engine**.  
-  - Införa grundläggande **Validation Strategies** (t.ex. för Python och JavaScript) samt dynamisk regelgenerering.
+### **StateManager**
+- Enforce strict **state transition validation** to prevent invalid transitions.
+- Implement rollback functionality and **state persistence** (with history cleanup).
 
-- **Testinfrastruktur:**  
-  - Bygg en omfattande testmiljö med enhets-, integrations- och prestandatester.
+### **Event System**
+- Connect event handling across all core components.
+- Implement **Event Persistence** with basic filtering and routing.
 
-- **Utökad Felhantering:**  
-  - Förbättra återhämtningsstrategier och centralisera error handling över systemet.
-
-- **Event System (utökning):**  
-  - Förbättra filtering, routing och prioritering (inkl. TaskEventBus).
-
----
-
-## Fas 3 – Avancerade Funktioner (Låg Prioritet) 🔵
-
-- **Extern Integration:**  
-  - Koppla upp mot externa verktyg som Git, CI/CD-system och IDE-integrationer.
-
-- **Task Management & Orchestration:**  
-  - Avancerad processgruppshantering med:  
-    - **ResourceMonitor** för ProcessManager  
-    - **DependencyGraph** för TaskPrioritizer  
-    - **MilestoneTracker** för ProgressTracker  
-    - Utökad **Task Orchestration** via TaskEventBus
-
-- **Prestandaoptimeringar:**  
-  - Införa **Memory Optimization & Indexing** strategier.  
-  - Implementera caching (både resultat- och minnescache) samt batch- och asynkrona operationer.
-
-- **Template & Integration Layer:**  
-  - Utveckla ett **Template Management System** för responsmallar.  
-  - Bygga en central **Integration Layer** för att koordinera systemets delar.
-
-- **Övergripande Monitoring:**  
-  - Införa system för att övervaka och samla in prestanda- och integrationsmetrics (Integration Monitor).
+### **Request Validation**
+- Implement a robust **Request Validation System** (structure, content, rate limiting, and prioritization).
 
 ---
 
-## Detaljerad Uppgiftslista per Komponent
+## **Phase 2 – Extended Integration (Medium Priority) 🟡**
 
-**AgentCoordinator**  
-- 🔴 Implementera **LLM Integration Module**.  
-- 🔴 Förbättra error recovery och utöka audit trail.  
-- 🔴 Implementera **Task Orchestration**.
+### **Missing Modules**
+- **Code Generation Module:** Automatic code generation with syntax validation and style formatting.
+- **Project Analysis Module:** Analyze project structure with **dependency graphs, code metrics, and pattern detection**.
+- **Code Analysis API:** Deeper code analysis, metric calculation, and issue detection.
 
-**WorkflowManager**  
-- 🔴 Fullständig implementation av alla workflow-steg.  
-- 🔴 Införa **workflow templates** och **checkpointing**.  
-- 🟡 Förbättra rollback-funktioner och avancerad felhantering.
+### **Memory & Context**
+- **Memory System Integration:** Connect MemoryManager with ContextManager and WorkflowManager for long-term persistence and optimization.
+- **Context Priority & Persistence:** Introduce priority logic and storage for relevant context data.
 
-**StateManager**  
-- 🔴 Införa **state transition validation**.  
-- 🔴 Implementera rollback och state persistence.  
-- 🟡 Förbättra cleanup-policyer.
+### **Validation**
+- Develop a **Validation Coordinator** with a **Rule Engine**.
+- Introduce basic **Validation Strategies** (e.g., for Python and JavaScript) along with **dynamic rule generation**.
 
-**File Services (FileAnalyzer & WorkspaceScanner)**  
-- 🟡 Slutföra implementering för JavaScript, HTML, CSS.  
-- 🟡 Införa dependency graph-generation.  
-- 🟡 Optimera filändringsdetektering och filtypcategorisering.
+### **Testing Infrastructure**
+- Build a **comprehensive testing environment** with unit, integration, and performance tests.
 
-**Validation och Testning**  
-- 🔴 Implementera grundläggande **Validation Strategies**.  
-- 🔴 Koppla ihop en **Validation Coordinator** med en **Rule Engine**.  
-- 🟡 Införa cross-file validering och dynamisk regelgenerering.  
-- 🟡 Bygga en robust testinfrastruktur.
+### **Extended Error Handling**
+- Improve recovery strategies and **centralized error handling**.
 
-**Interfaces (CLIInterface & ResponseFormatter)**  
-- 🟡 Implementera kommandohistorik, tab-completion och interaktiv workflow-visualisering.  
-- 🟡 Införa stöd för ANSI-färger, anpassade mallar och paginering.
-
-**Storage (CacheManager & PersistenceManager)**  
-- 🟡 Införa cachekomprimering och strategier för cacheinvalidering.  
-- 🟡 Stöd för flera lagringsbackends och data migrationssystem.  
-- 🔵 Backup-verifiering.
-
-**Task Management (ChecklistManager, ProcessManager m.m.)**  
-- 🟡 Implementera checklist templates och stöd för återkommande uppgifter.  
-- 🟡 Införa resursövervakning, processprioritering och grupphantering.  
-- 🟡 Implementera **ResourceMonitor**, **DependencyGraph** och **TaskEventBus**.  
-- 🔵 Avancerad processgruppshantering och utökad task orchestration.  
-- 🔵 Införa **MilestoneTracker** för progress tracking.
-
-**Integrationer & Ytterligare Funktioner**  
-- 🔴 Implementera **Request Validation System** med rate limiting och prioritering.  
-- 🟡 **Memory System Integration** (koppla MemoryManager med ContextManager & WorkflowManager).  
-- 🟡 Införa **Context Priority & Persistence System**.  
-- 🟡 Utveckla **Code Generation Module** och **Project Analysis Module**.  
-- 🟡 Implementera **Code Analysis API** och **Validation Coordinator** med en Rule Engine.  
-- 🟡 Förbättra **Event System Integration** (med persistence, filtering & routing).  
-- 🔵 Extern integration (Git, CI/CD, IDE).  
-- 🔵 Utveckla **Template Management System**.  
-- 🔵 Bygga en central **Integration Layer**.  
-- 🔵 Införa övergripande monitoring och metrics.
-
----
----
-
-# **CodeMate – Din AI-drivna kodassistent**  
-
-### 🤖 _Låt AI bygga, förbättra och testa kod åt dig_  
-
-**CodeMate** är en **semi-autonom kodassistent** som hjälper dig att **bygga nya funktioner steg för steg på ett säkert sätt**, samtidigt som den **automatiskt testar varje implementering**. Den analyserar kodbasen, identifierar relevanta filer och säkerställer att alla ändringar fungerar korrekt innan de införs i systemet.  
+### **Event System (Enhancements)**
+- Improve filtering, routing, and prioritization (including **TaskEventBus**).
 
 ---
 
-## 🔹 **Hur fungerar CodeMate?**  
+## **Phase 3 – Advanced Features (Low Priority) 🔵**
 
-🗂 **Läser och förstår din kodbas**  
-   - Skannar alla filer i `./Workspace/` och skapar en **översikt över projektet**.  
-   - Identifierar automatiskt **vilka filer som är viktiga för frontend och backend**.  
+### **External Integration**
+- Connect to external tools such as **Git, CI/CD systems, and IDE integrations**.
 
-🎯 **Planerar och genomför uppgifter steg för steg**  
-   - När du ger en instruktion (prompt) skapar CodeMate en **arbetsplan** med tydliga steg.  
-   - Använder en **interaktiv checklista** för att hålla koll på vad som är gjort och vad som återstår.  
+### **Task Management & Orchestration**
+- Advanced process group management, including:
+  - **ResourceMonitor** for ProcessManager
+  - **DependencyGraph** for TaskPrioritizer
+  - **MilestoneTracker** for ProgressTracker
+  - Extended **Task Orchestration** via **TaskEventBus**
 
-🛠 **Bygger nya funktioner & fixar kod automatiskt**  
-   - **Implementerar nya funktioner** baserat på din beskrivning.  
-   - Analyserar befintlig kod och avgör **var och hur den nya funktionen ska läggas till**.  
-   - Säkerställer att frontend och backend hänger ihop och kommunicerar korrekt.  
+### **Performance Optimizations**
+- Implement **Memory Optimization & Indexing** strategies.
+- Introduce **caching** (result cache & memory cache), **batch processing**, and **asynchronous operations**.
 
-🧪 **Testar alla ändringar automatiskt**  
-   - Skapar och kör tester för att validera både **nya funktioner och buggfixar**.  
-   - Om något går fel, analyserar CodeMate felet och justerar koden.  
+### **Template & Integration Layer**
+- Develop a **Template Management System** for response templates.
+- Build a **central Integration Layer** to coordinate system components.
 
-📊 **Håller koll på projektets framsteg**  
-   - Sparar all data i en **tillfällig arbetsyta**, så att information inte går förlorad om något måste göras om.  
-   - **Arbetar tills hela uppgiften är slutförd**, vare sig det handlar om en ny funktion eller en förbättring av befintlig kod.  
-
-🔄 **Redo för nästa uppdrag**  
-   - När alla ändringar är klara och testade, går CodeMate tillbaka till **standby-läge** och väntar på din nästa instruktion.  
+### **Comprehensive Monitoring**
+- Implement a **system monitoring solution** to collect performance and integration metrics.
 
 ---
 
-### **Varför använda CodeMate?**  
+## **Detailed Task List by Component**
 
-🏗 **Implementerar nya funktioner på din begäran** – Du beskriver, CodeMate bygger!  
-🔧 **Fixar kod & testar själv** – Säkerställer att allt fungerar innan du ens behöver dubbelkolla.  
-⏳ **Sparar tid** – Automatiserar underhåll och testkör så att du kan fokusera på viktigare saker som vilka funktioner som faktiskt ska implementeras.  
-💡 **CodeMate är som en utvecklarkompis som både fixar buggar och bygger nya funktioner åt dig!**  
+### **AgentCoordinator**
+- 🔴 Implement **LLM Integration Module**.
+- 🔴 Improve **error recovery** and expand audit trail.
+- 🔴 Implement **Task Orchestration**.
 
+### **WorkflowManager**
+- 🔴 Complete implementation of **all workflow stages**.
+- 🔴 Introduce **workflow templates** and **checkpointing**.
+- 🟡 Enhance rollback functions and advanced error handling.
 
+### **StateManager**
+- 🔴 Enforce **state transition validation**.
+- 🔴 Implement **rollback and state persistence**.
+- 🟡 Improve **cleanup policies**.
 
-```mermaid
+### **File Services (FileAnalyzer & WorkspaceScanner)**
+- 🟡 Finalize implementation for **JavaScript, HTML, CSS**.
+- 🟡 Introduce **dependency graph generation**.
+- 🟡 Optimize **file change detection** and **file categorization**.
 
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#2196F3',
-    'primaryTextColor': '#FFFFFF',
-    'primaryBorderColor': '#1976D2',
-    'lineColor': '#1976D2',
-    'secondaryColor': '#BBDEFB',
-    'tertiaryColor': '#E3F2FD'
-  }
-}}%%
-erDiagram
-    AgentCoordinator ||--|{ WorkflowManager : "manages"
-    AgentCoordinator ||--|{ FileSystemNavigator : "uses"
-    AgentCoordinator ||--|{ UserInterface : "interacts"
-    AgentCoordinator }|--|{ StateManager : "updates"
-    
-    WorkflowManager ||--|{ TaskPlanner : "creates"
-    WorkflowManager ||--|{ ProgressTracker : "monitors"
-    WorkflowManager ||--|{ ChecklistManager : "manages"
-    WorkflowManager }|--|{ StateManager : "reports to"
-    
-    FileSystemNavigator ||--|{ FileAnalyzer : "uses"
-    FileSystemNavigator ||--|{ WorkspaceScanner : "utilizes"
-    FileAnalyzer }|--|{ TaskPlanner : "informs"
-    
-    TaskPlanner ||--|{ TestManager : "coordinates"
-    TaskPlanner ||--|{ ImplementationValidator : "verifies"
-    TaskPlanner }|--|{ WorkflowManager : "updates"
-    
-    TestManager ||--|{ TestResultAnalyzer : "processes"
-    TestManager }|--|{ ImplementationValidator : "provides feedback"
-    TestResultAnalyzer }|--|{ TaskPlanner : "triggers updates"
-    
-    ChecklistManager ||--|{ TaskStatus : "tracks"
-    ChecklistManager ||--|{ TemporaryStorage : "uses"
-    TaskStatus }|--|{ StateManager : "updates"
-    
-    ImplementationValidator ||--|{ FrontendValidator : "validates"
-    ImplementationValidator ||--|{ BackendValidator : "validates"
-    ImplementationValidator }|--|{ TestManager : "requests tests"
-    
-    UserInterface ||--|{ RequestHandler : "processes"
-    UserInterface ||--|{ ResponseFormatter : "formats"
-    RequestHandler }|--|{ AgentCoordinator : "triggers"
-    ResponseFormatter }|--|{ UserInterface : "updates"
-    
-    StateManager }|--|{ AgentCoordinator : "triggers next action"
-    StateManager }|--|{ UserInterface : "updates status"
+### **Validation & Testing**
+- 🔴 Implement **basic Validation Strategies**.
+- 🔴 Connect a **Validation Coordinator** with a **Rule Engine**.
+- 🟡 Introduce **cross-file validation** and **dynamic rule generation**.
+- 🟡 Build a **robust testing infrastructure**.
 
-```
+### **Interfaces (CLIInterface & ResponseFormatter)**
+- 🟡 Implement **command history, tab-completion, and interactive workflow visualization**.
+- 🟡 Introduce **ANSI color support, custom templates, and pagination**.
 
+### **Storage (CacheManager & PersistenceManager)**
+- 🟡 Implement **cache compression** and **cache invalidation strategies**.
+- 🟡 Support for multiple storage backends and **data migration systems**.
+- 🔵 Backup verification.
 
-# The application defines commands such as `start`, `process`, and `status`. When you run:
+### **Task Management (ChecklistManager, ProcessManager, etc.)**
+- 🟡 Implement **checklist templates** and **recurring task support**.
+- 🟡 Introduce **resource monitoring, process prioritization, and group handling**.
+- 🟡 Implement **ResourceMonitor, DependencyGraph, and TaskEventBus**.
+- 🔵 Advanced **process group management** and **task orchestration**.
+- 🔵 Introduce **MilestoneTracker** for progress tracking.
+
+### **Integrations & Additional Features**
+- 🔴 Implement **Request Validation System** with **rate limiting and prioritization**.
+- 🟡 **Memory System Integration** (connect MemoryManager with ContextManager & WorkflowManager).
+- 🟡 Introduce **Context Priority & Persistence System**.
+- 🟡 Develop **Code Generation Module** and **Project Analysis Module**.
+- 🟡 Implement **Code Analysis API** and **Validation Coordinator** with a **Rule Engine**.
+- 🟡 Improve **Event System Integration** (including persistence, filtering & routing).
+- 🔵 External integration (**Git, CI/CD, IDE**).
+- 🔵 Develop **Template Management System**.
+- 🔵 Build a **central Integration Layer**.
+- 🔵 Implement **comprehensive monitoring and metrics**.
+
+---
+
+# **CodeMate – Your AI-Powered Coding Assistant**  
+
+### 🤖 _Let AI Build, Improve, and Test Code for You_  
+
+**CodeMate** is a **semi-autonomous coding assistant** that helps you **develop new features step by step in a safe manner** while **automatically testing each implementation**. It analyzes the codebase, identifies relevant files, and ensures all modifications function correctly before being integrated into the system.
+
+---
+
+## 🔹 **How Does CodeMate Work?**  
+
+1. **Understands Your Codebase**  
+   - Scans all files in `./Workspace/` and creates a **project overview**.  
+   - Automatically identifies **key files for frontend and backend**.
+
+2. **Plans & Executes Tasks Step by Step**  
+   - When you provide a prompt/instruction, CodeMate creates a **task plan** with clear steps.  
+   - Uses an **interactive checklist** to track progress.
+
+3. **Builds & Fixes Code Automatically**  
+   - **Implements new features** based on your description.  
+   - Analyzes existing code to determine **where and how to integrate** the new functionality.  
+   - Ensures that frontend and backend work seamlessly together.
+
+4. **Tests All Changes Automatically**  
+   - Creates and runs tests to validate both **new features and bug fixes**.  
+   - Adjusts the code if anything fails during tests.
+
+5. **Tracks Project Progress**  
+   - Stores data in a **temporary workspace**, so nothing is lost if a rollback is needed.  
+   - **Works until the entire task is completed**, whether it’s adding a new feature or refining existing code.
+
+6. **Stays Ready for Next Assignments**  
+   - Once everything is done and tested, CodeMate reverts to **standby mode** and awaits your next instruction.
+
+---
+
+## **CLI Usage (Basic Examples)**
 
 ```bash
-python src/main.py
+python src/main.py start  # Start CodeMate in interactive mode
+python src/main.py process "your request here"  # Process a single request
+python src/main.py --help  # Show all available commands and options
 ```
 
-Typer expects you to specify one of these commands. For example, you could run:
+---
+
+# **CLI Commands in Table Format**
+
+| **Command**      | **Description**                                 | **Example Usage**                                   |
+|------------------|-------------------------------------------------|-----------------------------------------------------|
+| `start`          | Start the agent (interactive or non-interactive)| `python src/main.py start`<br>`python src/main.py start --interactive=False` |
+| `process`        | Process a single request                        | `python src/main.py process "Analyze all files"`   |
+| `status`         | Check agent status                              | `python src/main.py status`                        |
+| `--help`         | Display usage instructions and help             | `python src/main.py --help`                        |
+| **Below commands appear inside the interactive CLI** |  |  |
+| `analyze`        | Analyze a file or directory                     | `analyze ./Workspace/`                             |
+| `execute`        | Execute a workflow                              | `execute build_pipeline`                           |
+| `status` (CLI)   | Display current agent status                    | `status`                                           |
+| `config`         | View current configuration                      | `config`                                           |
+| `update`         | Dynamically update configuration                | `update debug_mode True`                           |
+| `visualize`      | Visualize the active workflow                   | `visualize`                                        |
+| `refresh`        | Refresh the LLM context                         | `refresh`                                          |
+| `generate`       | Generate code from a given prompt               | `generate "Create a new user registration form"`   |
+| `git`            | Simulate Git integration                        | `git`                                              |
+| `diagnostics`    | Run system diagnostics                          | `diagnostics`                                      |
+| `audit`          | Show recent audit log entries                   | `audit`                                            |
+| `error`          | Show error history                              | `error`                                            |
+| `history`        | Show CLI command history                        | `history`                                          |
+| `debug`          | Display detailed system info & internal state   | `debug`                                            |
+| `clear`          | Clear the screen                                | `clear`                                            |
+| `exit`           | Exit the CLI                                    | `exit`                                             |
+
+
+### **Command Examples** (CLI Mode)
+
+<details>
+<summary><strong>Example 1: Analyzing a Directory</strong></summary>
 
 ```bash
-python src/main.py start
+# Within the interactive CLI
+agent> analyze ./Workspace/
 ```
 
-to start the agent in interactive mode, or:
+**Output**:
+```
+Analyze Request Result:
+[Detailed analysis results...]
+```
+</details>
+
+<details>
+<summary><strong>Example 2: Updating Configuration</strong></summary>
 
 ```bash
-python src/main.py process "your request here"
+agent> update debug_mode True
 ```
 
-to process a single request.
+**Output**:
+```
+Configuration updated: debug_mode set to True
+```
+</details>
 
-To see all available commands and options, run:
+<details>
+<summary><strong>Example 3: Generating Code</strong></summary>
 
 ```bash
-python src/main.py --help
+agent> generate "Create a simple login page"
 ```
 
-This will display usage instructions and help information.
+**Output**:
+```
+Generated Code:
+[Rendered HTML/JS code here...]
+```
+</details>
+
+
+---
+
+# **Installation and Usage**
+
+## **1. Install the Package**
+
+1. **Navigate to your project root** (where the `setup.py` and `pyproject.toml` reside).
+2. **Install** using `pip install .` (or `pip install -e .` for development mode).
+
+```bash
+# Standard installation
+pip install .
+
+# or if you want an editable install
+pip install -e .
+```
+
+This will install the `rewnozom-codemate` package and register the `cmate` CLI entry point on your system (if the environment’s `bin` or `Scripts` folder is on PATH).
+
+## **2. Use the `cmate` Command**
+
+After installing, you can invoke CodeMate via the `cmate` command instead of `python src/main.py`:
+
+```bash
+cmate start
+cmate start --interactive=False
+cmate process "Analyze all files and create a test plan"
+cmate status
+cmate --help
+```
+
+**Example**:
+```bash
+# Start CodeMate in interactive mode:
+cmate start
+```
+
+**Non-interactive mode**:
+```bash
+cmate start --interactive=False
+```
+
+**Process a single request**:
+```bash
+cmate process "Analyze the data pipeline"
+```
+
+## **3. (Optional) Environment Setup**
+
+If you need to set up a development environment (install dev dependencies, create logs/temp directories, etc.):
+
+```bash
+python scripts/setup.py setupenv
+```
+
+This will:
+- Install development dependencies from `requirements/dev.txt`
+- Create directories: `logs/`, `temp/`, `workspace/`, etc.
+
