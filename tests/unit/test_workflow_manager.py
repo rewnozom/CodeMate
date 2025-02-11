@@ -1,7 +1,7 @@
 # tests/unit/test_workflow_manager.py
 import pytest
 from datetime import datetime
-from src.core.workflow_manager import WorkflowManager, WorkflowStep, WorkflowStepType
+from cmate.core.workflow_manager import WorkflowManager, WorkflowStep, WorkflowStepType
 
 async def test_workflow_creation(workflow_manager):
     """Test workflow creation"""

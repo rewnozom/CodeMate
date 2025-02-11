@@ -14,11 +14,12 @@ services:
       - PYTHONPATH=/app
       - WORKSPACE_PATH=/app/workspace
     ports:
-      - "8000:8000"  # If needed for API
+      - "8000:8000"  # Expose API if needed
+    command: python -m cmate
     networks:
       - agent_network
 
-  lm-studio:  # Optional local LLM service
+  lm-studio:
     image: lmstudio/lmstudio:latest
     ports:
       - "1234:1234"
@@ -32,5 +33,3 @@ services:
 networks:
   agent_network:
     driver: bridge
-
-

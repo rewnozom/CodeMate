@@ -1,7 +1,7 @@
 # tests/unit/test_file_analyzer.py
 import pytest
 from pathlib import Path
-from src.file_services.file_analyzer import FileAnalyzer
+from cmate.file_services.file_analyzer import FileAnalyzer
 
 @pytest.fixture
 def test_file(workspace_path):

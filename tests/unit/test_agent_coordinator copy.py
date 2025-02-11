@@ -1,7 +1,7 @@
 # tests/unit/test_agent_coordinator.py
 import pytest
 from datetime import datetime
-from src.core.agent_coordinator import AgentCoordinator, AgentConfig
+from cmate.core.agent_coordinator import AgentCoordinator, AgentConfig
 
 async def test_agent_initialization(agent):
     """Test agent initialization"""

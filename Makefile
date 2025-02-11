@@ -1,4 +1,5 @@
 # Makefile
+
 .PHONY: install test lint format clean docs
 
 install:
@@ -6,17 +7,20 @@ install:
 	pre-commit install
 
 test:
-	pytest tests/ -v --cov=src --cov-report=term-missing
+	# Updated "--cov=src" to "--cov=cmate"
+	pytest tests/ -v --cov=cmate --cov-report=term-missing
 
 lint:
-	flake8 src tests
-	mypy src tests
-	black --check src tests
-	isort --check-only src tests
+	# Updated "src" → "cmate"
+	flake8 cmate tests
+	mypy cmate tests
+	black --check cmate tests
+	isort --check-only cmate tests
 
 format:
-	black src tests
-	isort src tests
+	# Updated "src" → "cmate"
+	black cmate tests
+	isort cmate tests
 
 clean:
 	find . -type d -name "__pycache__" -exec rm -rf {} +

@@ -1,6 +1,6 @@
 # tests/unit/test_state_manager.py
 import pytest
-from src.core.state_manager import StateManager, AgentState
+from cmate.core.state_manager import StateManager, AgentState
 
 def test_state_manager_initialization(state_manager):
     """Test state manager initialization"""

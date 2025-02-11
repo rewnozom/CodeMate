@@ -70,11 +70,11 @@ Line = 582, Starts = 584, Ends = 644
 Line = 644, Starts = 646, Ends = 672
 
 ## File: ..\..\README.md
-Line = 677, Starts = 679, Ends = 1044
+Line = 677, Starts = 679, Ends = 1100
 
 ## File: ..\..\setup.cfg
-Line = 1054, Starts = 1056, Ends = 1121
+Line = 1110, Starts = 1112, Ends = 1177
 
 ## File: ..\..\tox.ini
-Line = 1121, Starts = 1123, Ends = 1152
+Line = 1177, Starts = 1179, Ends = 1208
 

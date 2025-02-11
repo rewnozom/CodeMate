@@ -1,6 +1,6 @@
 # tests/unit/test_test_manager.py
 import pytest
-from src.validation.test_manager import TestManager
+from cmate.validation.test_manager import TestManager
 
 async def test_test_creation(workspace_path):
     """Test creating test case"""

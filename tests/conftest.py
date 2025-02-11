@@ -6,9 +6,9 @@ import sys
 # Add src to Python path
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from src.core.agent_coordinator import AgentCoordinator, AgentConfig
-from src.core.state_manager import StateManager
-from src.core.workflow_manager import WorkflowManager
+from cmate.core.agent_coordinator import AgentCoordinator, AgentConfig
+from cmate.core.state_manager import StateManager
+from cmate.core.workflow_manager import WorkflowManager
 
 @pytest.fixture
 def workspace_path(tmp_path):
