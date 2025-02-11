@@ -24,33 +24,18 @@ file_path = 'Full_Project_00.md'
 extract_code_blocks(file_path, instructions)
 ```
 
-## File: ..\..\config\default.yaml
-Line = 16, Starts = 18, Ends = 74
+## File: ..\..\cmate\interfaces\cli_interface.py
+Line = 17, Starts = 19, Ends = 370
 
-## File: ..\..\config\development.yaml
-Line = 74, Starts = 76, Ends = 100
+## File: ..\..\cmate\interfaces\request_handler.py
+Line = 370, Starts = 372, Ends = 519
 
-## File: ..\..\config\gunicorn.py
-Line = 100, Starts = 102, Ends = 150
+## File: ..\..\cmate\interfaces\response_formatter.py
+Line = 519, Starts = 521, Ends = 686
 
-## File: ..\..\config\local.yaml
-Line = 150, Starts = 152, Ends = 168
+## File: ..\..\cmate\interfaces\terminal_manager.py
+Line = 686, Starts = 688, Ends = 954
 
-## File: ..\..\config\production.yaml
-Line = 168, Starts = 170, Ends = 200
-
-## File: ..\..\config\__init__.py
-Line = 200, Starts = 202, Ends = 211
-
-## File: ..\..\config\prompts\base_prompts.yaml
-Line = 211, Starts = 213, Ends = 283
-
-## File: ..\..\config\prompts\error_prompts.yaml
-Line = 283, Starts = 285, Ends = 323
-
-## File: ..\..\config\prompts\workflow_prompts.yaml
-Line = 323, Starts = 325, Ends = 365
-
-## File: ..\..\config\prompts\__init__.py
-Line = 365, Starts = 367, Ends = 376
+## File: ..\..\cmate\interfaces\__init__.py
+Line = 954, Starts = 956, Ends = 965
 

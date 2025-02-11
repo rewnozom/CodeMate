@@ -25,14 +25,14 @@ extract_code_blocks(file_path, instructions)
 ```
 
 ## File: ..\..\requirements\base.txt
-Line = 10, Starts = 12, Ends = 35
+Line = 10, Starts = 12, Ends = 50
 
 ## File: ..\..\requirements\dev.txt
-Line = 35, Starts = 37, Ends = 55
+Line = 50, Starts = 52, Ends = 70
 
 ## File: ..\..\requirements\prod.txt
-Line = 55, Starts = 57, Ends = 68
+Line = 70, Starts = 72, Ends = 83
 
 ## File: ..\..\requirements\__init__.py
-Line = 68, Starts = 70, Ends = 79
+Line = 83, Starts = 85, Ends = 94
 

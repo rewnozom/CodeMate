@@ -10,7 +10,6 @@
 - [..\tests\integration\test_end_to_end.py](#-tests-integration-test_end_to_endpy)
 - [..\tests\integration\test_workflows.py](#-tests-integration-test_workflowspy)
 - [..\tests\integration\__init__.py](#-tests-integration-__init__py)
-- [..\tests\unit\test_agent_coordinator copy.py](#-tests-unit-test_agent_coordinator-copypy)
 - [..\tests\unit\test_agent_coordinator.py](#-tests-unit-test_agent_coordinatorpy)
 - [..\tests\unit\test_file_analyzer.py](#-tests-unit-test_file_analyzerpy)
 - [..\tests\unit\test_state_manager.py](#-tests-unit-test_state_managerpy)
@@ -32,9 +31,9 @@ import sys
 # Add src to Python path
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from src.core.agent_coordinator import AgentCoordinator, AgentConfig
-from src.core.state_manager import StateManager
-from src.core.workflow_manager import WorkflowManager
+from cmate.core.agent_coordinator import AgentCoordinator, AgentConfig
+from cmate.core.state_manager import StateManager
+from cmate.core.workflow_manager import WorkflowManager
 
 @pytest.fixture
 def workspace_path(tmp_path):
@@ -289,43 +288,6 @@ def old_function():
 
 ---
 
-# ..\..\tests\unit\test_agent_coordinator copy.py
-## File: ..\..\tests\unit\test_agent_coordinator copy.py
-
-```py
-# ..\..\tests\unit\test_agent_coordinator copy.py
-# tests/unit/test_agent_coordinator.py
-import pytest
-from datetime import datetime
-from src.core.agent_coordinator import AgentCoordinator, AgentConfig
-
-async def test_agent_initialization(agent):
-    """Test agent initialization"""
-    assert agent is not None
-    assert isinstance(agent.config, AgentConfig)
-    assert agent.state_manager is not None
-    assert agent.workflow_manager is not None
-
-async def test_process_request(agent):
-    """Test processing a simple request"""
-    request = {
-        "type": "analyze",
-        "data": {"path": "test.py"}
-    }
-    
-    result = await agent.process_request(request)
-    assert result["success"] is True
-    assert "result" in result
-
-async def test_check_status(agent):
-    """Test checking agent status"""
-    status = await agent.check_status()
-    assert "state" in status
-    assert "metrics" in status
-```
-
----
-
 # ..\..\tests\unit\test_agent_coordinator.py
 ## File: ..\..\tests\unit\test_agent_coordinator.py
 
@@ -344,7 +306,7 @@ async def test_check_status(agent):
 # tests/unit/test_file_analyzer.py
 import pytest
 from pathlib import Path
-from src.file_services.file_analyzer import FileAnalyzer
+from cmate.file_services.file_analyzer import FileAnalyzer
 
 @pytest.fixture
 def test_file(workspace_path):
@@ -381,7 +343,7 @@ async def test_analyze_python_file(test_file):
 # ..\..\tests\unit\test_state_manager.py
 # tests/unit/test_state_manager.py
 import pytest
-from src.core.state_manager import StateManager, AgentState
+from cmate.core.state_manager import StateManager, AgentState
 
 def test_state_manager_initialization(state_manager):
     """Test state manager initialization"""
@@ -410,7 +372,7 @@ def test_record_error(state_manager):
 # ..\..\tests\unit\test_test_manager.py
 # tests/unit/test_test_manager.py
 import pytest
-from src.validation.test_manager import TestManager
+from cmate.validation.test_manager import TestManager
 
 async def test_test_creation(workspace_path):
     """Test creating test case"""
@@ -437,7 +399,7 @@ async def test_test_creation(workspace_path):
 # tests/unit/test_workflow_manager.py
 import pytest
 from datetime import datetime
-from src.core.workflow_manager import WorkflowManager, WorkflowStep, WorkflowStepType
+from cmate.core.workflow_manager import WorkflowManager, WorkflowStep, WorkflowStepType
 
 async def test_workflow_creation(workflow_manager):
     """Test workflow creation"""

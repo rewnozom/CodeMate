@@ -25,50 +25,47 @@ extract_code_blocks(file_path, instructions)
 ```
 
 ## File: ..\..\tests\conftest.py
-Line = 22, Starts = 24, Ends = 79
+Line = 21, Starts = 23, Ends = 78
 
 ## File: ..\..\tests\__init__.py
-Line = 79, Starts = 81, Ends = 90
+Line = 78, Starts = 80, Ends = 89
 
 ## File: ..\..\tests\fixtures\__init__.py
-Line = 90, Starts = 92, Ends = 100
+Line = 89, Starts = 91, Ends = 99
 
 ## File: ..\..\tests\fixtures\sample_workspace\__init__.py
-Line = 100, Starts = 102, Ends = 111
+Line = 99, Starts = 101, Ends = 110
 
 ## File: ..\..\tests\fixtures\sample_workspace\test_project\main.py
-Line = 111, Starts = 113, Ends = 152
+Line = 110, Starts = 112, Ends = 151
 
 ## File: ..\..\tests\fixtures\sample_workspace\test_project\__init__.py
-Line = 152, Starts = 154, Ends = 163
+Line = 151, Starts = 153, Ends = 162
 
 ## File: ..\..\tests\integration\test_end_to_end.py
-Line = 163, Starts = 165, Ends = 219
+Line = 162, Starts = 164, Ends = 218
 
 ## File: ..\..\tests\integration\test_workflows.py
-Line = 219, Starts = 221, Ends = 281
+Line = 218, Starts = 220, Ends = 280
 
 ## File: ..\..\tests\integration\__init__.py
-Line = 281, Starts = 283, Ends = 292
-
-## File: ..\..\tests\unit\test_agent_coordinator copy.py
-Line = 292, Starts = 294, Ends = 329
+Line = 280, Starts = 282, Ends = 291
 
 ## File: ..\..\tests\unit\test_agent_coordinator.py
-Line = 329, Starts = 331, Ends = 339
+Line = 291, Starts = 293, Ends = 301
 
 ## File: ..\..\tests\unit\test_file_analyzer.py
-Line = 339, Starts = 341, Ends = 377
+Line = 301, Starts = 303, Ends = 339
 
 ## File: ..\..\tests\unit\test_state_manager.py
-Line = 377, Starts = 379, Ends = 406
+Line = 339, Starts = 341, Ends = 368
 
 ## File: ..\..\tests\unit\test_test_manager.py
-Line = 406, Starts = 408, Ends = 432
+Line = 368, Starts = 370, Ends = 394
 
 ## File: ..\..\tests\unit\test_workflow_manager.py
-Line = 432, Starts = 434, Ends = 467
+Line = 394, Starts = 396, Ends = 429
 
 ## File: ..\..\tests\unit\__init__.py
-Line = 467, Starts = 469, Ends = 478
+Line = 429, Starts = 431, Ends = 440
 

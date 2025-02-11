@@ -28,6 +28,21 @@ pandas>=1.3.0
 pytest>=7.0.0
 black>=22.0.0
 flake8>=4.0.0
+
+# Added LLM dependencies
+pydantic>=2.0.0
+langchain>=0.1.0
+langchain-anthropic>=0.1.0
+langchain-openai>=0.1.0
+langchain-groq>=0.1.0
+groq>=0.1.0
+
+# Added Core dependencies
+asyncio>=3.4.3
+aiofiles>=0.8.0
+uvicorn>=0.15.0
+prompt_toolkit>=3.0.0
+pathlib>=1.0.1
 ```
 
 ---

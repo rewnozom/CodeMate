@@ -24,33 +24,24 @@ file_path = 'Full_Project_00.md'
 extract_code_blocks(file_path, instructions)
 ```
 
-## File: ..\..\config\default.yaml
-Line = 16, Starts = 18, Ends = 74
+## File: ..\..\cmate\llm\conversation.py
+Line = 13, Starts = 15, Ends = 76
 
-## File: ..\..\config\development.yaml
-Line = 74, Starts = 76, Ends = 100
+## File: ..\..\cmate\llm\llm_agent.py
+Line = 76, Starts = 78, Ends = 136
 
-## File: ..\..\config\gunicorn.py
-Line = 100, Starts = 102, Ends = 150
+## File: ..\..\cmate\llm\llm_manager.py
+Line = 136, Starts = 138, Ends = 351
 
-## File: ..\..\config\local.yaml
-Line = 150, Starts = 152, Ends = 168
+## File: ..\..\cmate\llm\model_selector.py
+Line = 351, Starts = 353, Ends = 388
 
-## File: ..\..\config\production.yaml
-Line = 168, Starts = 170, Ends = 200
+## File: ..\..\cmate\llm\prompt_optimizer.py
+Line = 388, Starts = 390, Ends = 421
 
-## File: ..\..\config\__init__.py
-Line = 200, Starts = 202, Ends = 211
+## File: ..\..\cmate\llm\response_parser.py
+Line = 421, Starts = 423, Ends = 456
 
-## File: ..\..\config\prompts\base_prompts.yaml
-Line = 211, Starts = 213, Ends = 283
-
-## File: ..\..\config\prompts\error_prompts.yaml
-Line = 283, Starts = 285, Ends = 323
-
-## File: ..\..\config\prompts\workflow_prompts.yaml
-Line = 323, Starts = 325, Ends = 365
-
-## File: ..\..\config\prompts\__init__.py
-Line = 365, Starts = 367, Ends = 376
+## File: ..\..\cmate\llm\__init__.py
+Line = 456, Starts = 458, Ends = 467
 

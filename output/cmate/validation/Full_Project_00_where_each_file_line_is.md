@@ -24,33 +24,21 @@ file_path = 'Full_Project_00.md'
 extract_code_blocks(file_path, instructions)
 ```
 
-## File: ..\..\config\default.yaml
-Line = 16, Starts = 18, Ends = 74
+## File: ..\..\cmate\validation\backend_validator.py
+Line = 12, Starts = 14, Ends = 362
 
-## File: ..\..\config\development.yaml
-Line = 74, Starts = 76, Ends = 100
+## File: ..\..\cmate\validation\frontend_validator.py
+Line = 362, Starts = 364, Ends = 632
 
-## File: ..\..\config\gunicorn.py
-Line = 100, Starts = 102, Ends = 150
+## File: ..\..\cmate\validation\implementation_validator.py
+Line = 632, Starts = 634, Ends = 850
 
-## File: ..\..\config\local.yaml
-Line = 150, Starts = 152, Ends = 168
+## File: ..\..\cmate\validation\test_manager.py
+Line = 850, Starts = 852, Ends = 1069
 
-## File: ..\..\config\production.yaml
-Line = 168, Starts = 170, Ends = 200
+## File: ..\..\cmate\validation\validation_rules.py
+Line = 1069, Starts = 1071, Ends = 1240
 
-## File: ..\..\config\__init__.py
-Line = 200, Starts = 202, Ends = 211
-
-## File: ..\..\config\prompts\base_prompts.yaml
-Line = 211, Starts = 213, Ends = 283
-
-## File: ..\..\config\prompts\error_prompts.yaml
-Line = 283, Starts = 285, Ends = 323
-
-## File: ..\..\config\prompts\workflow_prompts.yaml
-Line = 323, Starts = 325, Ends = 365
-
-## File: ..\..\config\prompts\__init__.py
-Line = 365, Starts = 367, Ends = 376
+## File: ..\..\cmate\validation\__init__.py
+Line = 1240, Starts = 1242, Ends = 1251
 
