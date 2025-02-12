@@ -210,9 +210,9 @@
 - Integrated into both the main application and the test runner for a consistent logging experience.
 
 ## 🔧 **System Requirements**
-- Python 3.8+
+- Python 3.10 Recommended
 - Minimum 1GB free space for storage
-- Recommended: 4GB RAM or more
+- Recommended: 12-22+ GB VRAM (Minimum 4-8)
 - API Keys for desired LLM providers
 
 ## 📦 **Installation**
