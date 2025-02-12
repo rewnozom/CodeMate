@@ -1,0 +1,35 @@
+2025-02-12 16:06:28,409 - cmate.utils.system_metrics - INFO - CPU: 8.1%, Memory: 56.5%, Disk: 28.9%, Process Memory: 656.15MB
+2025-02-12 16:06:28,410 - cmate.utils.system_metrics - INFO - Network IO: {'bytes_sent': 153921671, 'bytes_recv': 1244780898, 'packets_sent': 625432, 'packets_recv': 1175538, 'errin': 0, 'errout': 996, 'dropin': 0, 'dropout': 996}
+2025-02-12 16:06:28,410 - cmate.utils.system_metrics - INFO - Process Count: 300
+2025-02-12 16:06:28,415 - cmate.utils.system_metrics - INFO - CPU: 8.0%, Memory: 56.5%, Disk: 28.9%, Process Memory: 656.15MB
+2025-02-12 16:33:09,861 - cmate.utils.system_metrics - INFO - CPU: 9.8%, Memory: 55.0%, Disk: 28.9%, Process Memory: 655.27MB
+2025-02-12 16:33:57,052 - cmate.utils.system_metrics - INFO - CPU: 14.7%, Memory: 55.4%, Disk: 28.9%, Process Memory: 656.52MB
+2025-02-12 16:33:57,052 - cmate.utils.system_metrics - INFO - Network IO: {'bytes_sent': 162130043, 'bytes_recv': 1266347176, 'packets_sent': 646675, 'packets_recv': 1211505, 'errin': 0, 'errout': 1091, 'dropin': 0, 'dropout': 1091}
+2025-02-12 16:33:57,052 - cmate.utils.system_metrics - INFO - Process Count: 305
+2025-02-12 16:33:57,057 - cmate.utils.system_metrics - INFO - CPU: 9.5%, Memory: 55.4%, Disk: 28.9%, Process Memory: 656.53MB
+2025-02-12 16:57:15,493 - cmate.utils.system_metrics - INFO - CPU: 13.4%, Memory: 54.6%, Disk: 28.9%, Process Memory: 655.16MB
+2025-02-12 17:17:04,157 - cmate.utils.system_metrics - INFO - CPU: 8.6%, Memory: 51.5%, Disk: 28.9%, Process Memory: 655.20MB
+2025-02-12 17:17:55,809 - cmate.utils.system_metrics - INFO - CPU: 15.4%, Memory: 51.7%, Disk: 28.9%, Process Memory: 656.64MB
+2025-02-12 17:17:55,810 - cmate.utils.system_metrics - INFO - Network IO: {'bytes_sent': 172184315, 'bytes_recv': 1290641774, 'packets_sent': 672960, 'packets_recv': 1256942, 'errin': 0, 'errout': 1249, 'dropin': 0, 'dropout': 1249}
+2025-02-12 17:17:55,810 - cmate.utils.system_metrics - INFO - Process Count: 301
+2025-02-12 17:17:55,814 - cmate.utils.system_metrics - INFO - CPU: 8.3%, Memory: 51.7%, Disk: 28.9%, Process Memory: 656.64MB
+2025-02-12 17:38:32,802 - cmate.utils.system_metrics - INFO - CPU: 10.7%, Memory: 54.5%, Disk: 28.9%, Process Memory: 654.29MB
+2025-02-12 17:39:08,802 - cmate.utils.system_metrics - INFO - CPU: 14.1%, Memory: 54.9%, Disk: 28.9%, Process Memory: 655.39MB
+2025-02-12 17:39:08,802 - cmate.utils.system_metrics - INFO - Network IO: {'bytes_sent': 176813225, 'bytes_recv': 1298619659, 'packets_sent': 686767, 'packets_recv': 1277803, 'errin': 0, 'errout': 1330, 'dropin': 0, 'dropout': 1330}
+2025-02-12 17:39:08,803 - cmate.utils.system_metrics - INFO - Process Count: 309
+2025-02-12 17:39:08,808 - cmate.utils.system_metrics - INFO - CPU: 16.7%, Memory: 54.9%, Disk: 28.9%, Process Memory: 655.39MB
+2025-02-12 19:10:24,104 - cmate.utils.system_metrics - INFO - CPU: 10.4%, Memory: 62.8%, Disk: 28.9%, Process Memory: 656.78MB
+2025-02-12 19:10:29,891 - cmate.utils.system_metrics - INFO - CPU: 6.9%, Memory: 62.8%, Disk: 28.9%, Process Memory: 657.55MB
+2025-02-12 19:10:29,892 - cmate.utils.system_metrics - INFO - Network IO: {'bytes_sent': 311201531, 'bytes_recv': 6092762752, 'packets_sent': 1794712, 'packets_recv': 4602741, 'errin': 0, 'errout': 1657, 'dropin': 0, 'dropout': 1657}
+2025-02-12 19:10:29,892 - cmate.utils.system_metrics - INFO - Process Count: 339
+2025-02-12 19:10:29,915 - cmate.utils.system_metrics - INFO - CPU: 24.4%, Memory: 62.8%, Disk: 28.9%, Process Memory: 657.55MB
+2025-02-12 19:42:53,892 - cmate.utils.system_metrics - INFO - CPU: 12.8%, Memory: 63.4%, Disk: 28.9%, Process Memory: 656.23MB
+2025-02-12 19:42:59,601 - cmate.utils.system_metrics - INFO - CPU: 9.4%, Memory: 63.3%, Disk: 28.9%, Process Memory: 656.85MB
+2025-02-12 19:42:59,601 - cmate.utils.system_metrics - INFO - Network IO: {'bytes_sent': 323443084, 'bytes_recv': 6117738099, 'packets_sent': 1825158, 'packets_recv': 4648321, 'errin': 0, 'errout': 1677, 'dropin': 0, 'dropout': 1677}
+2025-02-12 19:42:59,601 - cmate.utils.system_metrics - INFO - Process Count: 332
+2025-02-12 19:42:59,606 - cmate.utils.system_metrics - INFO - CPU: 0.0%, Memory: 63.3%, Disk: 28.9%, Process Memory: 656.86MB
+2025-02-12 21:21:55,627 - cmate.utils.system_metrics - INFO - CPU: 11.1%, Memory: 64.7%, Disk: 28.9%, Process Memory: 655.96MB
+2025-02-12 21:22:01,379 - cmate.utils.system_metrics - INFO - CPU: 6.5%, Memory: 64.6%, Disk: 28.9%, Process Memory: 656.71MB
+2025-02-12 21:22:01,379 - cmate.utils.system_metrics - INFO - Network IO: {'bytes_sent': 349277230, 'bytes_recv': 6189164555, 'packets_sent': 1894311, 'packets_recv': 4765037, 'errin': 0, 'errout': 1746, 'dropin': 0, 'dropout': 1746}
+2025-02-12 21:22:01,380 - cmate.utils.system_metrics - INFO - Process Count: 342
+2025-02-12 21:22:01,385 - cmate.utils.system_metrics - INFO - CPU: 4.8%, Memory: 64.6%, Disk: 28.9%, Process Memory: 656.71MB

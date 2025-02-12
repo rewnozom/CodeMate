@@ -1,0 +1,3 @@
+2025-02-11 11:26:49,997 - cmate.core.state_manager - INFO - State history loaded successfully.
+2025-02-11 11:26:50,010 - cmate.core.workflow_manager - INFO - Workflows loaded successfully.
+2025-02-11 11:26:50,390 - cmate.core.agent_coordinator - INFO - AgentCoordinator initialized with all subsystems integrated.
