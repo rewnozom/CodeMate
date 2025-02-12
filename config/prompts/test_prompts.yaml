@@ -1,0 +1,228 @@
+# config/prompts/test_prompts.yaml
+# Advanced Testing Framework - Version 3.1
+# Comprehensive templates for test generation, coverage analysis, and failure investigation
+
+base_test_generation:
+  content: |
+    Generate comprehensive test suite:
+
+    CONTEXT:
+      Implementation: {implementation_code}
+      Requirements: {test_requirements}
+
+    Test Framework Design:
+    1. Functional Testing
+       - Core Features
+         * Main workflows
+         * Business logic
+         * Data processing
+         * API contracts
+
+       - Validation Testing
+         * Input validation
+         * Output verification
+         * State management
+         * Data integrity
+
+    2. Edge Case Testing
+       - Boundary Conditions
+         * Min/max values
+         * Empty/null cases
+         * Large datasets
+         * Resource limits
+
+       - Error Scenarios
+         * Invalid inputs
+         * Resource failures
+         * Timeout conditions
+         * Network issues
+
+    3. Integration Testing
+       - Component Interaction
+         * Service coupling
+         * Data flow
+         * Event handling
+         * State transitions
+
+       - System Integration
+         * External services
+         * Database operations
+         * File system interaction
+         * Network communication
+
+    4. Performance Testing
+       - Resource Usage
+         * Memory consumption
+         * CPU utilization
+         * I/O operations
+         * Network bandwidth
+
+       - Timing Analysis
+         * Response times
+         * Processing delays
+         * Concurrent operations
+         * Race conditions
+
+    Provide test specifications:
+    TEST_SUITE:
+      Functional:
+        Cases: [Test cases]
+        Data: [Test data]
+        Setup: [Setup requirements]
+        Cleanup: [Cleanup procedures]
+
+      Edge:
+        Cases: [Edge test cases]
+        Conditions: [Test conditions]
+        Validation: [Validation points]
+
+      Integration:
+        Tests: [Integration tests]
+        Dependencies: [Required components]
+        Mocks: [Mock requirements]
+
+      Performance:
+        Tests: [Performance tests]
+        Metrics: [Key metrics]
+        Thresholds: [Acceptance criteria]
+  variables:
+    - implementation_code
+    - test_requirements
+  description: "Enhanced test generation prompt with comprehensive testing strategies and detailed specifications."
+  category: "testing"
+  version: "3.1"
+
+coverage_gap_tests:
+  content: |
+    Address test coverage gaps:
+
+    CONTEXT:
+      Gaps: {coverage_gaps}
+      Existing: {existing_tests}
+
+    Gap Analysis Framework:
+    1. Coverage Assessment
+       - Code Coverage
+         * Uncovered paths
+         * Branch coverage
+         * Statement coverage
+         * Function coverage
+
+       - Scenario Coverage
+         * Missing workflows
+         * Edge cases
+         * Error paths
+         * Integration points
+
+    2. Test Strategy
+       - Gap Prioritization
+         * Critical paths
+         * Risk assessment
+         * Complexity analysis
+         * Impact evaluation
+
+       - Test Design
+         * Test scenarios
+         * Data requirements
+         * Environment needs
+         * Validation criteria
+
+    3. Implementation Plan
+       - Test Development
+         * Test structure
+         * Dependencies
+         * Setup requirements
+         * Cleanup needs
+
+       - Integration Strategy
+         * Existing suite integration
+         * Resource management
+         * Execution order
+         * Performance impact
+
+    Provide gap coverage plan:
+    ANALYSIS:
+      Gaps: [Detailed gap analysis]
+      Priority: [Gap priorities]
+      Impact: [Coverage impact]
+
+    IMPLEMENTATION:
+      Tests: [New test cases]
+      Data: [Test data]
+      Setup: [Setup needs]
+      Integration: [Integration plan]
+  variables:
+    - coverage_gaps
+    - existing_tests
+  description: "Comprehensive coverage gap analysis prompt with strategic test planning."
+  category: "testing"
+  version: "3.1"
+
+test_failure_analysis:
+  content: |
+    Analyze test failures and determine resolution:
+
+    CONTEXT:
+      Failed Tests: {failed_tests}
+      Errors: {error_logs}
+      Implementation: {implementation}
+
+    Analysis Framework:
+    1. Failure Classification
+       - Error Patterns
+         * Failure types
+         * Error messages
+         * Stack traces
+         * System state
+
+       - Impact Assessment
+         * Affected components
+         * Data integrity
+         * System stability
+         * User impact
+
+    2. Root Cause Analysis
+       - Technical Investigation
+         * Code issues
+         * Configuration problems
+         * Environment factors
+         * Resource constraints
+
+       - Pattern Recognition
+         * Common factors
+         * Related issues
+         * Historical context
+         * Timing patterns
+
+    3. Resolution Planning
+       - Fix Strategy
+         * Code changes
+         * Test updates
+         * Configuration updates
+         * Environment fixes
+
+       - Validation Approach
+         * Test modifications
+         * Coverage expansion
+         * Regression testing
+         * Performance validation
+
+    Provide failure analysis:
+    ANALYSIS:
+      Failures: [Failure breakdown]
+      Causes: [Root causes]
+      Patterns: [Error patterns]
+      Impact: [Failure impact]
+
+    RESOLUTION:
+      Fixes: [Required fixes]
+      Tests: [Test updates]
+      Validation: [Validation plan]
+      Prevention: [Prevention measures]
+  variables:
+    - failed_tests
+    - error_logs
+    - implementation
+  description: "Enhanced test failure analysis prompt with systematic investigation and resolution planning."
+  category: "testing"
+  version: "3.1"

@@ -1,62 +1,213 @@
 # config/prompts/base_prompts.yaml
-# Base prompts for the system with comprehensive guidance
+# Core System Prompts - Version 3.1
+# Foundation prompts defining agent behavior, analysis patterns, and operational guidelines.
+# Enhanced with comprehensive instructions for code quality, security, and maintainability.
 
 system_prompt:
   content: |
-    You are a semi-autonomous agent assistant specialized in code analysis, modification, and testing.
-    Your workspace is strictly limited to the "./Workspace" directory.
-    Follow these principles meticulously:
-      1. Thoroughly analyze the current code and context before making any modifications.
-      2. Develop clear, step-by-step plans prior to implementation.
-      3. Implement changes while preserving the existing code style and structure.
-      4. Rigorously test all modifications using unit and integration tests.
-      5. Document your decisions, changes, and underlying reasoning in detail.
-      6. If an error occurs, perform a detailed analysis and propose concrete recovery actions.
-    Always maintain awareness of the system’s state and context when deciding on your actions.
+    You are a sophisticated semi-autonomous agent specializing in code development, analysis, and quality assurance.
+    Operating Environment: "./Workspace" directory (strictly enforced)
+
+    Core Operational Principles:
+    1. Analysis & Planning
+       - Perform thorough code and context analysis
+       - Evaluate security implications and risks
+       - Identify dependencies and potential impacts
+       - Create detailed implementation roadmaps
+
+    2. Development Standards
+       - Maintain consistent code style and patterns
+       - Follow clean code principles
+       - Implement comprehensive error handling
+       - Add detailed logging for operations
+       - Use type hints and proper documentation
+
+    3. Quality Assurance
+       - Write comprehensive test suites
+       - Validate edge cases and error conditions
+       - Ensure backward compatibility
+       - Verify security considerations
+
+    4. Documentation & Communication
+       - Document all decisions and rationales
+       - Maintain clear change logs
+       - Provide implementation details
+       - Include usage examples
+
+    5. Error Management
+       - Implement graceful error handling
+       - Provide detailed error analysis
+       - Develop recovery strategies
+       - Document error patterns
+
+    6. Performance & Security
+       - Optimize critical paths
+       - Implement security best practices
+       - Consider resource usage
+       - Monitor system impacts
+
+    Always maintain system state awareness and context sensitivity in decision-making.
   variables: []
-  description: "Base system prompt for agent initialization with detailed behavior guidelines."
+  description: "Enhanced system prompt with comprehensive guidelines for high-quality code development and maintenance."
   category: "system"
-  version: "2.0"
+  version: "3.1"
 
 analysis_prompt:
   content: |
-    Analyze the following files thoroughly and provide a detailed report that includes:
-      1. A high-level overview of the structure and architecture.
-      2. Identification of key components and module dependencies.
-      3. Potential issues, risks, or areas for improvement.
-      4. Specific recommendations for immediate actions and long-term enhancements.
-      5. Suggestions for further testing or analysis.
-    Files to analyze: {files}
-  variables: ["files"]
-  description: "Detailed prompt for file analysis requiring a comprehensive report."
+    Perform comprehensive codebase analysis:
+
+    TARGET: {files}
+
+    Analysis Requirements:
+    1. Architecture Assessment
+       - System structure and design patterns
+       - Component relationships
+       - Dependency graph
+       - Integration points
+
+    2. Code Quality Evaluation
+       - Style consistency
+       - Documentation coverage
+       - Error handling patterns
+       - Testing coverage
+
+    3. Technical Debt Analysis
+       - Code complexity
+       - Duplicate patterns
+       - Outdated practices
+       - Performance bottlenecks
+
+    4. Security Assessment
+       - Vulnerability scanning
+       - Security best practices
+       - Input validation
+       - Data protection
+
+    5. Recommendations
+       - Immediate improvements
+       - Long-term refactoring
+       - Security enhancements
+       - Performance optimization
+
+    Provide detailed report with:
+    ANALYSIS:
+      Architecture: [Detailed architecture breakdown]
+      Quality: [Code quality assessment]
+      Security: [Security findings]
+      Performance: [Performance analysis]
+    
+    RECOMMENDATIONS:
+      Priority: [Prioritized action items]
+      Timeline: [Implementation timeline]
+      Risks: [Risk assessment]
+      Resources: [Required resources]
+  variables:
+    - files
+  description: "Comprehensive analysis prompt covering architecture, quality, security, and improvement recommendations."
   category: "analysis"
-  version: "2.0"
+  version: "3.1"
 
 implementation_prompt:
   content: |
-    Implement the requested changes by adhering to these guidelines:
-      1. Analyze the existing codebase and preserve the current coding style.
-      2. Add detailed documentation and inline comments to explain your changes.
-      3. Develop comprehensive unit tests and, if necessary, integration tests to validate the modifications.
-      4. Incorporate robust error handling to manage unexpected situations.
-      5. Provide a detailed report outlining the changes, the rationale behind your decisions, and any assumptions made.
-    Requested changes: {changes}
-    Affected files: {files}
-  variables: ["changes", "files"]
-  description: "Prompt for implementation with detailed instructions and documentation requirements."
+    Execute codebase modifications:
+
+    CHANGES: {changes}
+    FILES: {files}
+
+    Implementation Guidelines:
+    1. Code Quality Standards
+       - Maintain consistent style
+       - Follow SOLID principles
+       - Implement clean code practices
+       - Add comprehensive logging
+       - Include type hints
+       - Write detailed documentation
+
+    2. Error Management
+       - Implement try-catch blocks
+       - Add error recovery
+       - Log error details
+       - Provide user feedback
+
+    3. Testing Requirements
+       - Unit test coverage
+       - Integration tests
+       - Edge case validation
+       - Performance testing
+
+    4. Security Considerations
+       - Input validation
+       - Data sanitization
+       - Access control
+       - Secure coding practices
+
+    5. Documentation
+       - Update API documentation
+       - Add usage examples
+       - Document edge cases
+       - Include error scenarios
+
+    Deliverables:
+    IMPLEMENTATION:
+      Changes: [Detailed change list]
+      Tests: [Test coverage details]
+      Docs: [Documentation updates]
+      Review: [Review checklist]
+  variables:
+    - changes
+    - files
+  description: "Detailed implementation prompt ensuring high-quality, secure, and well-tested code modifications."
   category: "implementation"
-  version: "2.0"
+  version: "3.1"
 
 test_prompt:
   content: |
-    Develop a comprehensive test suite to validate the implemented changes. Your test plan should include:
-      1. Unit tests covering all new functionality and logical branches.
-      2. Integration tests to ensure proper interaction between modules.
-      3. Test cases for edge scenarios and error handling.
-      4. A summary of test results and any observed anomalies.
-    Implementation details: {implementation}
-    Files to test: {files}
-  variables: ["implementation", "files"]
-  description: "Prompt for creating a full test suite with detailed validation criteria."
+    Develop comprehensive test suite:
+
+    IMPLEMENTATION: {implementation}
+    FILES: {files}
+
+    Testing Requirements:
+    1. Unit Testing
+       - Core functionality
+       - Edge cases
+       - Error conditions
+       - Parameter validation
+       - State management
+
+    2. Integration Testing
+       - Component interaction
+       - API contracts
+       - Data flow
+       - Error propagation
+
+    3. Performance Testing
+       - Load handling
+       - Resource usage
+       - Response times
+       - Scalability
+
+    4. Security Testing
+       - Input validation
+       - Authentication
+       - Authorization
+       - Data protection
+
+    5. Documentation
+       - Test scenarios
+       - Setup requirements
+       - Test data
+       - Expected results
+
+    Deliverables:
+    TEST_SUITE:
+      Coverage: [Test coverage metrics]
+      Results: [Test execution results]
+      Issues: [Identified issues]
+      Fixes: [Required fixes]
+  variables:
+    - implementation
+    - files
+  description: "Comprehensive test suite development prompt ensuring thorough validation of all aspects."
   category: "testing"
-  version: "2.0"
+  version: "3.1"

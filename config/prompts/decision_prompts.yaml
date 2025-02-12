@@ -1,0 +1,165 @@
+# config/prompts/decision_prompts.yaml
+# Decision-Making Framework - Version 3.1
+# Enhanced prompts for intelligent action selection and error recovery
+
+base_decision:
+  content: |
+    Evaluate current context and determine optimal action:
+
+    CONTEXT:
+      State: {current_state}
+      Request: {user_request}
+      System: {system_context}
+
+    AVAILABLE_ACTIONS:
+    {available_actions}
+
+    HISTORY:
+      Previous Decisions: {previous_decisions}
+
+    Decision Framework:
+    1. Context Analysis
+       - State requirements and constraints
+       - Request objectives and priorities
+       - System capabilities and limitations
+       - Resource availability
+
+    2. Impact Assessment
+       - Short-term effects
+       - Long-term implications
+       - Resource requirements
+       - Risk factors
+
+    3. Action Evaluation
+       - Success probability
+       - Required resources
+       - Implementation complexity
+       - Recovery options
+
+    4. Constraint Validation
+       - System boundaries
+       - Security implications
+       - Performance impact
+       - Maintainability
+
+    Provide structured response:
+    DECISION:
+      Analysis: [Detailed context analysis]
+      Choice: <{Decide} action_name>
+      Priority: [High/Medium/Low]
+      Impact: [Expected outcomes]
+      Risks: [Identified risks]
+      Mitigation: [Risk mitigation steps]
+      Validation: [Success criteria]
+  variables:
+    - current_state
+    - user_request
+    - system_context
+    - available_actions
+    - previous_decisions
+  description: "Enhanced decision-making prompt with comprehensive context analysis and structured evaluation framework."
+  category: "decision"
+  version: "3.1"
+
+recovery_decision_prompt:
+  content: |
+    Analyze error situation and determine recovery strategy:
+
+    ERROR_CONTEXT:
+      Details: {error_details}
+      Previous Action: {previous_decision}
+      System State: {system_state}
+
+    RECOVERY_OPTIONS:
+    {recovery_actions}
+
+    Recovery Analysis Framework:
+    1. Error Assessment
+       - Root cause analysis
+       - Error propagation
+       - Impact scope
+       - System stability
+
+    2. Context Evaluation
+       - System state integrity
+       - Data consistency
+       - Resource availability
+       - Service stability
+
+    3. Recovery Strategy
+       - Immediate actions
+       - Rollback requirements
+       - Data recovery needs
+       - Service restoration
+
+    4. Prevention Planning
+       - Similar error prevention
+       - Monitoring improvements
+       - Process enhancements
+       - Documentation updates
+
+    Provide structured recovery plan:
+    RECOVERY:
+      Analysis: [Detailed error analysis]
+      Action: <{Recover} action_name>
+      Priority: [Critical/High/Medium/Low]
+      Steps: [Ordered recovery steps]
+      Validation: [Recovery validation points]
+      Prevention: [Future prevention measures]
+      Documentation: [Required documentation updates]
+      
+    MONITORING:
+      Metrics: [Key metrics to watch]
+      Thresholds: [Alert thresholds]
+      Checks: [Validation checks]
+  variables:
+    - error_details
+    - previous_decision
+    - system_state
+    - recovery_actions
+  description: "Comprehensive error recovery prompt with detailed analysis, structured recovery planning, and prevention strategies."
+  category: "decision"
+  version: "3.1"
+
+validation_decision_prompt:
+  content: |
+    Validate action outcomes and determine next steps:
+
+    ACTION_CONTEXT:
+      Action: {completed_action}
+      Results: {action_results}
+      Expectations: {expected_outcomes}
+
+    Validation Framework:
+    1. Result Analysis
+       - Success criteria evaluation
+       - Performance metrics
+       - Error conditions
+       - Side effects
+
+    2. Compliance Check
+       - Security requirements
+       - Performance standards
+       - Quality criteria
+       - Documentation completeness
+
+    3. Impact Assessment
+       - System stability
+       - Resource usage
+       - User impact
+       - Integration effects
+
+    Provide validation report:
+    VALIDATION:
+      Status: [Success/Partial/Failed]
+      Analysis: [Detailed analysis]
+      Issues: [Identified issues]
+      Actions: [Required actions]
+      Recommendations: [Improvement suggestions]
+  variables:
+    - completed_action
+    - action_results
+    - expected_outcomes
+  description: "New validation decision prompt for evaluating action outcomes and determining follow-up steps."
+  category: "decision"
+  version: "3.1"

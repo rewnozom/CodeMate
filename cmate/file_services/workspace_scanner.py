@@ -1,4 +1,4 @@
-# src/file_services/workspace_scanner.py
+# cmate/file_services/workspace_scanner.py
 from typing import Dict, List, Optional, Any, Union
 from dataclasses import dataclass, field
 from datetime import datetime
@@ -36,8 +36,8 @@ class WorkspaceScanner:
             r'\.git',
             r'\.pytest_cache',
             r'\.venv',
-            r'*.pyc',
-            r'*.pyo'
+            r".*\.pyc",
+            r".*\.pyo"
         ]
         self.scan_history: List[ScanResult] = []
 

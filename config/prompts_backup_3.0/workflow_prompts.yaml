@@ -1,0 +1,37 @@
+# config/prompts/workflow_prompts.yaml
+# Workflow prompts providing step-by-step guidance for planning and validating workflows – version 3.0
+# These prompt templates guide the agent through creating detailed workflow plans and performing thorough validations.
+
+workflow_planning:
+  content: |
+    Develop a comprehensive workflow plan that includes the following:
+      1. A clear, step-by-step description of all actions to be taken.
+      2. Identification of all dependencies between steps.
+      3. Specific validation checkpoints for each step.
+      4. Clear objectives and measurable success criteria.
+      5. A detailed risk analysis with recommended mitigation measures.
+    Task description: {task}
+    Context: {context}
+  variables:
+    - task
+    - context
+  description: "Prompt for creating a detailed workflow plan with clear steps, dependencies, and validation checkpoints."
+  category: "workflow"
+  version: "3.0"
+
+workflow_validation:
+  content: |
+    Review the completed workflow and provide a detailed validation report that covers:
+      1. Verification that all workflow steps have been successfully completed.
+      2. Confirmation that the results meet the specified objectives.
+      3. Identification of any discrepancies or issues.
+      4. Recommendations for improvements and risk minimization.
+      5. Suggestions for additional tests or inspections if necessary.
+    Workflow: {workflow}
+    Results: {results}
+  variables:
+    - workflow
+    - results
+  description: "Prompt for validating a workflow with focus on completeness, accuracy, and improvement recommendations."
+  category: "workflow"
+  version: "3.0"

@@ -1,9 +1,13 @@
+# ..\..\cmate\core\memory_manager.py
 # src/core/memory_manager.py
 from typing import Dict, List, Optional, Any, Union
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from enum import Enum
 from uuid import UUID, uuid4
+import logging
+
+logger = logging.getLogger(__name__)
 
 class MemoryType(Enum):
     """Types of agent memory"""
@@ -42,14 +46,17 @@ class MemoryManager:
             MemoryType.LONG_TERM: timedelta(days=7),
             MemoryType.PERSISTENT: timedelta(days=30)
         }
+        logger.success("MemoryManager initialized successfully.")
 
     def store(self, 
-             content: Any,
-             memory_type: MemoryType,
-             importance: int = 0,
-             metadata: Optional[Dict[str, Any]] = None,
-             expires_in: Optional[timedelta] = None) -> UUID:
-        """Store new memory item"""
+              content: Any,
+              memory_type: MemoryType,
+              importance: int = 0,
+              metadata: Optional[Dict[str, Any]] = None,
+              ttl: Optional[int] = None) -> UUID:
+        """Store new memory item.
+        ttl: time-to-live in seconds."""
+        expires_at = datetime.now() + timedelta(seconds=ttl) if ttl is not None else None
         # Create memory item
         item = MemoryItem(
             id=uuid4(),
@@ -59,7 +66,7 @@ class MemoryManager:
             last_accessed=datetime.now(),
             importance=importance,
             metadata=metadata or {},
-            expires_at=datetime.now() + expires_in if expires_in else None
+            expires_at=expires_at
         )
         
         # Check and maintain limits
@@ -67,11 +74,12 @@ class MemoryManager:
         
         # Store item
         self.memories[item.id] = item
+        logger.success("Stored memory item with id: %s", item.id)
         return item.id
 
     def retrieve(self, 
-                memory_id: UUID,
-                update_access: bool = True) -> Optional[Any]:
+                 memory_id: UUID,
+                 update_access: bool = True) -> Optional[Any]:
         """Retrieve memory content"""
         item = self.memories.get(memory_id)
         if item:
@@ -82,9 +90,9 @@ class MemoryManager:
         return None
 
     def search(self,
-              memory_type: Optional[MemoryType] = None,
-              importance_threshold: int = 0,
-              metadata_filter: Optional[Dict[str, Any]] = None) -> List[MemoryItem]:
+               memory_type: Optional[MemoryType] = None,
+               importance_threshold: int = 0,
+               metadata_filter: Optional[Dict[str, Any]] = None) -> List[MemoryItem]:
         """Search memories with filters"""
         results = []
         
@@ -97,10 +105,10 @@ class MemoryManager:
         return sorted(results, key=lambda x: (-x.importance, -x.access_count))
 
     def update(self,
-              memory_id: UUID,
-              content: Optional[Any] = None,
-              importance: Optional[int] = None,
-              metadata: Optional[Dict[str, Any]] = None) -> bool:
+               memory_id: UUID,
+               content: Optional[Any] = None,
+               importance: Optional[int] = None,
+               metadata: Optional[Dict[str, Any]] = None) -> bool:
         """Update memory item"""
         if memory_id in self.memories:
             item = self.memories[memory_id]
@@ -113,12 +121,16 @@ class MemoryManager:
                 item.metadata.update(metadata)
                 
             item.last_accessed = datetime.now()
+            logger.success("Updated memory item with id: %s", memory_id)
             return True
         return False
 
     def forget(self, memory_id: UUID) -> bool:
         """Remove memory item"""
-        return bool(self.memories.pop(memory_id, None))
+        removed = bool(self.memories.pop(memory_id, None))
+        if removed:
+            logger.success("Forgot memory item with id: %s", memory_id)
+        return removed
 
     def cleanup(self) -> int:
         """Clean up expired and old memories"""
@@ -141,6 +153,8 @@ class MemoryManager:
             self.forget(item_id)
             removed_count += 1
             
+        if removed_count:
+            logger.success("Cleaned up %d memory items.", removed_count)
         return removed_count
 
     def _check_type_limit(self, memory_type: MemoryType) -> None:
@@ -156,9 +170,10 @@ class MemoryManager:
             )
             
             # Remove oldest, least important items
-            while len(type_memories) >= limit:
+            while len(type_memories) >= limit and to_remove:
                 item = to_remove.pop(0)
                 self.forget(item.id)
+                type_memories.remove(item)
 
     def _matches_metadata(self, item: MemoryItem, metadata_filter: Optional[Dict[str, Any]] = None) -> bool:
         """Check if item matches metadata filter"""
@@ -185,6 +200,7 @@ class MemoryManager:
 
     def consolidate_memories(self, threshold: int = 5) -> None:
         """Consolidate frequently accessed short-term memories to long-term"""
+        consolidated = 0
         for item in list(self.memories.values()):
             if item.type == MemoryType.SHORT_TERM and item.access_count >= threshold:
                 # Create new long-term memory
@@ -196,4 +212,6 @@ class MemoryManager:
                 )
                 # Remove old short-term memory
                 self.forget(item.id)
-
+                consolidated += 1
+        if consolidated:
+            logger.success("Consolidated %d memory items from short-term memory.", consolidated)

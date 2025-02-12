@@ -1,15 +1,15 @@
-# src/validation/validation_rules.py
+# cmate/validation/validation_rules.py
 from typing import Dict, List, Optional, Any, Union, Callable
 from dataclasses import dataclass, field
 from datetime import datetime
 import re
 from enum import Enum
 
+# Updated enum values: use numeric values for ordering.
 class ValidationLevel(Enum):
-    """Validation severity levels"""
-    STRICT = "strict"
-    NORMAL = "normal"
-    LENIENT = "lenient"
+    STRICT = 1
+    NORMAL = 2
+    LENIENT = 3
 
 @dataclass
 class ValidationRule:
@@ -39,7 +39,7 @@ class ValidationRules:
 
     def _initialize_rules(self) -> None:
         """Initialize default validation rules"""
-        # File path validation
+        # Setup basic rules
         self.add_rule(
             "valid_path",
             "Validate file path format",
@@ -47,7 +47,6 @@ class ValidationRules:
             ValidationLevel.STRICT
         )
         
-        # Code content validation
         self.add_rule(
             "code_syntax",
             "Validate Python code syntax",
@@ -55,7 +54,6 @@ class ValidationRules:
             ValidationLevel.STRICT
         )
         
-        # Function name validation
         self.add_rule(
             "function_name",
             "Validate function naming convention",
@@ -63,7 +61,6 @@ class ValidationRules:
             ValidationLevel.NORMAL
         )
         
-        # Variable name validation
         self.add_rule(
             "variable_name",
             "Validate variable naming convention",

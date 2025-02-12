@@ -1,30 +1,177 @@
 # config/prompts/error_prompts.yaml
-# Error prompts for in-depth error analysis and recovery with detailed guidance
+# Advanced Error Analysis and Recovery Framework - Version 3.1
+# Sophisticated templates for systematic error analysis, recovery planning, and prevention
 
 error_analysis:
   content: |
-    Analyze the following error message and provide a comprehensive report that includes:
-      1. A detailed root cause analysis identifying all relevant factors and contextual issues.
-      2. Concrete recommendations for immediate corrective actions.
-      3. Long-term prevention strategies to avoid similar errors in the future.
-      4. Suggestions for additional tests or monitoring to ensure system stability.
-    Error details: {error_message}
-    Context: {context}
-  variables: ["error_message", "context"]
-  description: "Prompt for detailed error analysis, including both immediate fixes and long-term prevention."
+    Perform comprehensive error analysis:
+
+    ERROR_CONTEXT:
+      Message: {error_message}
+      System Context: {context}
+
+    Analysis Framework:
+    1. Error Classification
+       - Error type and severity
+       - Component affected
+       - Scope of impact
+       - Data integrity status
+
+    2. Root Cause Analysis
+       - Direct trigger
+       - Contributing factors
+       - Environmental conditions
+       - System state analysis
+       - Resource constraints
+       - Timing factors
+
+    3. Impact Assessment
+       - System stability
+       - Data consistency
+       - Service availability
+       - User impact
+       - Resource utilization
+       - Performance metrics
+
+    4. Pattern Recognition
+       - Similar past incidents
+       - Common factors
+       - System vulnerabilities
+       - Error patterns
+
+    Provide detailed analysis report:
+    ANALYSIS:
+      Classification: [Error classification]
+      Root Cause: [Detailed cause analysis]
+      Impact: [Impact assessment]
+      Patterns: [Identified patterns]
+
+    RECOMMENDATIONS:
+      Immediate: [Urgent actions needed]
+      Short-term: [Quick improvements]
+      Long-term: [Strategic changes]
+      Prevention: [Prevention measures]
+
+    MONITORING:
+      Metrics: [Key metrics to track]
+      Thresholds: [Alert thresholds]
+      Validation: [Success criteria]
+  variables:
+    - error_message
+    - context
+  description: "Enhanced error analysis prompt with systematic investigation framework and comprehensive recommendations."
   category: "error"
-  version: "2.0"
+  version: "3.1"
 
 error_recovery:
   content: |
-    Propose a detailed recovery plan to restore the system to a functional state. Your plan should include:
-      1. Immediate actions to stabilize the system.
-      2. Steps to recover data or state if necessary.
-      3. Validation measures to confirm the success of the recovery.
-      4. Recommendations for follow-up tests and monitoring to prevent future issues.
-    Error: {error}
-    Current state: {state}
-  variables: ["error", "state"]
-  description: "Prompt for detailed error recovery steps, covering both immediate stabilization and long-term solutions."
+    Develop structured recovery strategy:
+
+    ERROR_DETAILS:
+      Error: {error}
+      State: {state}
+
+    Recovery Framework:
+    1. Immediate Response
+       - System stabilization
+       - Service restoration
+       - Data protection
+       - User communication
+
+    2. Recovery Process
+       - State restoration
+       - Data recovery
+       - Service validation
+       - Integration checks
+       - Performance verification
+
+    3. Validation Steps
+       - System integrity
+       - Data consistency
+       - Service functionality
+       - Performance metrics
+       - Security checks
+
+    4. Post-Recovery Actions
+       - System hardening
+       - Monitoring enhancement
+       - Documentation updates
+       - Process improvements
+
+    Provide detailed recovery plan:
+    RECOVERY:
+      Priority: [Critical/High/Medium/Low]
+      Timeline: [Expected recovery time]
+      Resources: [Required resources]
+      
+      Steps:
+        Immediate: [Immediate actions]
+        Recovery: [Recovery process]
+        Validation: [Validation steps]
+        Closure: [Completion criteria]
+
+    VERIFICATION:
+      Checks: [Required validations]
+      Tests: [Test scenarios]
+      Metrics: [Success metrics]
+      
+    DOCUMENTATION:
+      Incident: [Incident details]
+      Actions: [Actions taken]
+      Results: [Recovery results]
+      Lessons: [Lessons learned]
+  variables:
+    - error
+    - state
+  description: "Comprehensive error recovery prompt with structured recovery planning and thorough validation framework."
   category: "error"
-  version: "2.0"
+  version: "3.1"
+
+incident_closure:
+  content: |
+    Document error incident resolution:
+
+    INCIDENT_DETAILS:
+      Error: {error_details}
+      Recovery: {recovery_actions}
+      Duration: {incident_duration}
+
+    Closure Requirements:
+    1. Incident Summary
+       - Initial trigger
+       - Impact scope
+       - Resolution steps
+       - Recovery time
+
+    2. Success Validation
+       - System stability
+       - Service availability
+       - Data integrity
+       - Performance metrics
+
+    3. Learning Points
+       - Root causes
+       - Prevention measures
+       - Process improvements
+       - Documentation updates
+
+    4. Follow-up Actions
+       - Monitoring improvements
+       - System hardening
+       - Training needs
+       - Documentation updates
+
+    Provide closure report:
+    CLOSURE:
+      Summary: [Incident summary]
+      Resolution: [Resolution details]
+      Validation: [Success validation]
+      Learning: [Key learnings]
+      Actions: [Follow-up items]
+  variables:
+    - error_details
+    - recovery_actions
+    - incident_duration
+  description: "New incident closure prompt ensuring thorough documentation and learning from error incidents."
+  category: "error"
+  version: "3.1"

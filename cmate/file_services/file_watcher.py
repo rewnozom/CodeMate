@@ -35,7 +35,7 @@ class FileWatcher(FileSystemEventHandler):
             r'__pycache__',
             r'\.git',
             r'\.pytest_cache',
-            r'*.pyc'
+            r".*\.pyc"
         ]
         self._is_running = False
 

@@ -1,0 +1,241 @@
+# config/prompts/implementation_prompts.yaml
+# Advanced Implementation Framework - Version 3.1
+# Comprehensive templates for code planning, generation, and recovery
+
+implementation_planning_prompt:
+  content: |
+    Develop implementation strategy based on:
+
+    CONTEXT:
+      Request: {user_request}
+      Current Code: {current_code}
+      Dependencies: {dependencies}
+
+    Planning Framework:
+    1. Architecture Analysis
+       - System design impact
+       - Component interactions
+       - Integration points
+       - Performance considerations
+       - Security implications
+
+    2. Implementation Strategy
+       - Code modifications
+       - New components
+       - Refactoring needs
+       - Migration steps
+       - Rollback plan
+
+    3. Resource Requirements
+       - Development time
+       - Testing resources
+       - Documentation needs
+       - Training requirements
+       - Maintenance impact
+
+    4. Risk Assessment
+       - Technical risks
+       - Integration risks
+       - Performance risks
+       - Security risks
+       - Mitigation strategies
+
+    Provide detailed implementation plan:
+    ANALYSIS:
+      Architecture: [Design analysis]
+      Impact: [System impact]
+      Resources: [Required resources]
+      Timeline: [Implementation timeline]
+    
+    STRATEGY:
+      Plan: [Detailed implementation steps]
+      Decision: <{Implement} strategy_name>
+      Priority: [High/Medium/Low]
+      Phases: [Implementation phases]
+      
+    VALIDATION:
+      Tests: [Required tests]
+      Metrics: [Success metrics]
+      Checkpoints: [Validation points]
+  variables:
+    - user_request
+    - current_code
+    - dependencies
+  description: "Enhanced implementation planning prompt with comprehensive analysis and structured planning framework."
+  category: "implementation"
+  version: "3.1"
+
+code_generation_prompt:
+  content: |
+    Generate implementation for:
+
+    REQUIREMENTS:
+      Task: {implementation_task}
+      Code: {current_code}
+      Dependencies: {dependencies}
+      Requirements: {requirements}
+      Style: {style_guide}
+
+    Development Guidelines:
+    1. Code Quality
+       - Follow clean code principles
+       - Maintain consistent style
+       - Use meaningful names
+       - Keep functions focused
+       - Optimize for readability
+
+    2. Documentation
+       - Class/function docstrings
+       - Implementation details
+       - Usage examples
+       - Edge cases
+       - Assumptions
+
+    3. Error Handling
+       - Input validation
+       - Exception handling
+       - Error recovery
+       - Logging strategy
+       - User feedback
+
+    4. Security & Performance
+       - Security best practices
+       - Resource management
+       - Performance optimization
+       - Memory efficiency
+       - Thread safety
+
+    Provide implementation:
+    CODE:
+    ```python
+    [Implementation here]
+    ```
+
+    DOCUMENTATION:
+      Overview: [Implementation overview]
+      Details: [Technical details]
+      Usage: [Usage examples]
+      Notes: [Important considerations]
+
+    TESTING:
+      Units: [Unit test requirements]
+      Integration: [Integration test needs]
+      Edge Cases: [Edge case scenarios]
+      Performance: [Performance test cases]
+  variables:
+    - implementation_task
+    - current_code
+    - dependencies
+    - requirements
+    - style_guide
+  description: "Comprehensive code generation prompt ensuring high-quality, secure, and well-documented implementations."
+  category: "implementation"
+  version: "3.1"
+
+implementation_recovery_prompt:
+  content: |
+    Analyze implementation failure and determine recovery strategy:
+
+    CONTEXT:
+      Error: {error_log}
+      Code: {previous_code}
+      Tests: {test_results}
+      Request: {user_request}
+      Plan: {implementation_plan}
+
+    ACTIONS:
+    {recovery_actions}
+
+    Recovery Framework:
+    1. Error Analysis
+       - Root cause identification
+       - Error patterns
+       - Impact assessment
+       - Dependency issues
+       - Performance factors
+
+    2. Recovery Strategy
+       - Code fixes
+       - Dependency updates
+       - Configuration changes
+       - Data recovery
+       - Service restoration
+
+    3. Validation Requirements
+       - Code review
+       - Test coverage
+       - Performance validation
+       - Security checks
+       - Integration testing
+
+    Provide recovery plan:
+    ANALYSIS:
+      Cause: [Root cause analysis]
+      Impact: [Error impact]
+      Patterns: [Error patterns]
+      
+    RECOVERY:
+      Action: <{Recover} action_name>
+      Changes: [Required changes]
+      Steps: [Recovery steps]
+      
+    VALIDATION:
+      Tests: [Required tests]
+      Checks: [Validation points]
+      Metrics: [Success criteria]
+  variables:
+    - error_log
+    - previous_code
+    - test_results
+    - user_request
+    - implementation_plan
+    - recovery_actions
+  description: "Enhanced implementation recovery prompt with systematic error analysis and structured recovery planning."
+  category: "implementation"
+  version: "3.1"
+
+code_review_prompt:
+  content: |
+    Review implementation quality:
+
+    CODE:
+      Implementation: {implementation}
+      Changes: {changes}
+      Tests: {tests}
+
+    Review Framework:
+    1. Code Quality
+       - Clean code principles
+       - Style consistency
+       - Documentation quality
+       - Error handling
+       - Performance aspects
+
+    2. Security Review
+       - Input validation
+       - Data protection
+       - Access control
+       - Security patterns
+       - Vulnerability checks
+
+    3. Testing Assessment
+       - Test coverage
+       - Edge cases
+       - Error scenarios
+       - Performance tests
+       - Integration tests
+
+    Provide review report:
+    REVIEW:
+      Quality: [Code quality assessment]
+      Security: [Security review]
+      Testing: [Test coverage analysis]
+      Issues: [Identified issues]
+      Fixes: [Required changes]
+  variables:
+    - implementation
+    - changes
+    - tests
+  description: "New code review prompt ensuring comprehensive quality assessment of implementations."
+  category: "implementation"
+  version: "3.1"

@@ -1,3 +1,4 @@
+# ..\..\cmate\utils\log_analyzer.py
 # src/utils/log_analyzer.py
 from typing import Dict, List, Optional, Any, Union
 from dataclasses import dataclass, field
@@ -112,8 +113,8 @@ class LogAnalyzer:
             if not timestamp:
                 return None
                 
-            # Extract level
-            level_match = re.search(r'\[(DEBUG|INFO|WARNING|ERROR|CRITICAL)\]', line)
+            # Extract level (now including SUCCESS)
+            level_match = re.search(r'\[(DEBUG|INFO|WARNING|ERROR|CRITICAL|SUCCESS)\]', line)
             level = level_match.group(1) if level_match else "UNKNOWN"
             
             # Extract message

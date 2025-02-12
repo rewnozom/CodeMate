@@ -1,7 +1,19 @@
+# ..\..\cmate\utils\logger.py
 # src/utils/logger.py
 import logging
 import sys
 from rich.logging import RichHandler
+
+# --- Define a custom SUCCESS log level ---
+SUCCESS_LEVEL = 25  # Place this between INFO (20) and WARNING (30)
+logging.addLevelName(SUCCESS_LEVEL, "SUCCESS")
+
+def success(self, message, *args, **kwargs):
+    if self.isEnabledFor(SUCCESS_LEVEL):
+        self._log(SUCCESS_LEVEL, message, args, **kwargs)
+
+# Add the success method to the Logger class
+logging.Logger.success = success
 
 def setup_logging(log_level: str = "INFO", log_file: str = None) -> None:
     """

@@ -1,0 +1,54 @@
+# config/prompts/navigation_prompts.yaml
+
+navigation_analysis_prompt:
+  content: |
+    Based on the following:
+    USER REQUEST: {user_request}
+    WORKSPACE STRUCTURE: {workspace_data}
+    CURRENT STATE: {current_state}
+
+    Your task is to:
+    1. Analyze if this requires:
+       - Modifying existing files
+       - Creating new files
+       - Multiple file changes
+    2. Identify target components
+    3. Choose appropriate action
+
+    Available Actions:
+    {available_actions}
+
+    Respond in the following format:
+    4. Analysis: [Your detailed analysis]
+    5. Decision: <{Navigate} action_name>
+    6. Reasoning: [Explain your choice]
+  variables:
+    - user_request
+    - workspace_data
+    - current_state
+    - available_actions
+  description: "Prompt for analyzing navigation requirements and choosing appropriate file actions based on the workspace structure and current state."
+  category: "navigation"
+  version: "3.0"
+
+multi_component_prompt:
+  content: |
+    Based on your previous analysis, you need to handle multiple components.
+    
+    Components identified:
+    {identified_components}
+
+    For each component, specify:
+    1. Priority order
+    2. Dependencies
+    3. Required changes
+
+    Format your response as:
+    4. Component Plan: [Ordered list with dependencies]
+    5. Navigation Order: <{NavigateMulti} [ordered_components]>
+    6. Reasoning: [Explain your planning]
+  variables:
+    - identified_components
+  description: "Prompt for handling multiple components by specifying priority order, dependencies, and required changes."
+  category: "navigation"
+  version: "3.0"

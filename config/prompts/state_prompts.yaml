@@ -1,0 +1,249 @@
+analysis_state_prompts:
+  initial_analysis:
+    content: |
+      Analyze the current development request and context:
+      
+      REQUEST: {user_request}
+      WORKSPACE: {workspace_data}
+      CONTEXT: {current_context}
+      
+      Provide a structured analysis covering:
+      1. Situation Assessment
+         - Key requirements and constraints
+         - Available resources and limitations
+         - Critical dependencies
+      
+      2. Action Planning
+         - Required implementation steps
+         - Priority order of execution
+         - Risk mitigation strategies
+      
+      3. Technical Considerations
+         - Architecture impacts
+         - Performance implications
+         - Security considerations
+      
+      Response Format:
+      ANALYSIS:
+        Situation: [Detailed situation analysis]
+        Technical: [Technical impact assessment]
+        Risks: [Identified risks and mitigations]
+      
+      ACTION:
+        <{Action} primary_action>
+        Priority: [High/Medium/Low]
+        Dependencies: [List of dependencies]
+      
+      IMPLEMENTATION:
+        Steps: [Ordered implementation steps]
+        Validation: [Required validation points]
+        Rollback: [Rollback strategy if needed]
+    variables:
+      - user_request
+      - workspace_data
+      - current_context
+    description: "Comprehensive prompt for analyzing development requests with technical, risk, and implementation considerations."
+    category: "state"
+    version: "3.1"
+
+  dependency_analysis:
+    content: |
+      Perform dependency analysis for component:
+      
+      TARGET: {target_component}
+      RELATED: {related_components}
+      
+      Analyze and document:
+      1. Direct Dependencies
+         - Required libraries and versions
+         - External service dependencies
+         - Internal component dependencies
+      
+      2. Indirect Dependencies
+         - Transitive dependencies
+         - Shared resource requirements
+         - Configuration dependencies
+      
+      3. Impact Assessment
+         - Change propagation analysis
+         - Performance implications
+         - Security considerations
+         - Breaking changes
+      
+      4. Migration Strategy
+         - Required updates
+         - Version compatibility
+         - Update sequence
+      
+      Provide recommendations for:
+      - Dependency optimization
+      - Risk mitigation
+      - Update strategy
+    variables:
+      - target_component
+      - related_components
+    description: "Detailed dependency analysis prompt covering direct, indirect, and impact assessment with migration planning."
+    category: "state"
+    version: "3.1"
+
+implementation_state_prompts:
+  code_generation:
+    content: |
+      Generate production-ready implementation for:
+      
+      TASK: {implementation_task}
+      CONTEXT: {implementation_context}
+      STYLE_GUIDE: {style_guide}
+      
+      Implementation Requirements:
+      1. Code Quality
+         - Follow clean code principles
+         - Implement proper error handling
+         - Include comprehensive logging
+         - Add type hints and documentation
+      
+      2. Architecture
+         - Follow SOLID principles
+         - Ensure modularity
+         - Consider extensibility
+      
+      3. Performance
+         - Optimize critical paths
+         - Consider resource usage
+         - Handle edge cases
+      
+      4. Testing & Validation
+         - Include unit test considerations
+         - Add validation checks
+         - Document test scenarios
+    variables:
+      - implementation_task
+      - implementation_context
+      - style_guide
+    description: "Enhanced code generation prompt focusing on production-ready, maintainable implementations."
+    category: "state"
+    version: "3.1"
+
+  code_review:
+    content: |
+      Perform comprehensive code review:
+      
+      CODE: {generated_code}
+      REQUIREMENTS: {requirements}
+      
+      Review Criteria:
+      1. Code Quality
+         - Style guide compliance
+         - Clean code principles
+         - Documentation completeness
+         - Type safety
+      
+      2. Implementation
+         - Algorithm efficiency
+         - Resource management
+         - Error handling
+         - Edge case coverage
+      
+      3. Security
+         - Input validation
+         - Data sanitization
+         - Security best practices
+      
+      4. Maintainability
+         - Code organization
+         - Naming conventions
+         - Comment clarity
+         - Test coverage
+      
+      Provide:
+      REVIEW:
+        Issues: [List of issues found]
+        Recommendations: [Improvement suggestions]
+        Security: [Security considerations]
+        Next Steps: [Required changes]
+    variables:
+      - generated_code
+      - requirements
+    description: "Detailed code review prompt covering quality, security, and maintainability aspects."
+    category: "state"
+    version: "3.1"
+
+testing_state_prompts:
+  test_generation:
+    content: |
+      Generate comprehensive test suite for:
+      
+      IMPLEMENTATION: {implementation}
+      REQUIREMENTS: {requirements}
+      
+      Test Coverage:
+      1. Unit Tests
+         - Core functionality
+         - Edge cases
+         - Error conditions
+         - Boundary testing
+      
+      2. Integration Tests
+         - Component interactions
+         - API contracts
+         - Data flow
+      
+      3. Performance Tests
+         - Load conditions
+         - Resource usage
+         - Timing constraints
+      
+      4. Security Tests
+         - Input validation
+         - Authentication
+         - Authorization
+      
+      Include for each test:
+      - Preconditions
+      - Test steps
+      - Expected results
+      - Cleanup requirements
+    variables:
+      - implementation
+      - requirements
+    description: "Comprehensive test generation prompt covering unit, integration, performance, and security testing."
+    category: "state"
+    version: "3.1"
+
+  test_analysis:
+    content: |
+      Analyze test execution results:
+      
+      RESULTS: {test_results}
+      ERRORS: {error_log}
+      
+      Provide detailed analysis:
+      1. Failure Analysis
+         - Root cause identification
+         - Impact assessment
+         - Pattern recognition
+         - Environment factors
+      
+      2. Resolution Strategy
+         - Required code changes
+         - Configuration updates
+         - Environment fixes
+         - Documentation updates
+      
+      3. Prevention Measures
+         - Additional test coverage
+         - Monitoring requirements
+         - Process improvements
+         - Documentation enhancements
+      
+      REPORT:
+        Issues: [Detailed issue breakdown]
+        Fixes: [Required fixes prioritized]
+        Prevention: [Future prevention steps]
+        Timeline: [Estimated resolution timeline]
+    variables:
+      - test_results
+      - error_log
+    description: "Detailed test analysis prompt focusing on root cause analysis and prevention strategies."
+    category: "state"
+    version: "3.1"

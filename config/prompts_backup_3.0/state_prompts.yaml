@@ -1,0 +1,116 @@
+analysis_state_prompts:
+  initial_analysis:
+    content: |
+      Analyze the current situation:
+      REQUEST: {user_request}
+      WORKSPACE: {workspace_data}
+      CONTEXT: {current_context}
+      
+      Provide:
+      1. Situation Analysis
+      2. Required Actions
+      3. Potential Challenges
+      
+      Response Format:
+      4. Analysis: [Your analysis]
+      5. Action: <{Action} chosen_action>
+      6. Details: [Implementation details]
+    variables:
+      - user_request
+      - workspace_data
+      - current_context
+    description: "Prompt to analyze the current state based on the user request and workspace context."
+    category: "state"
+    version: "3.0"
+
+  dependency_analysis:
+    content: |
+      Analyze dependencies for:
+      TARGET: {target_component}
+      RELATED: {related_components}
+      
+      Identify:
+      1. Direct Dependencies
+      2. Indirect Dependencies
+      3. Impact Assessment
+    variables:
+      - target_component
+      - related_components
+    description: "Prompt to analyze dependencies for a target component and assess their impact."
+    category: "state"
+    version: "3.0"
+
+implementation_state_prompts:
+  code_generation:
+    content: |
+      Generate implementation for:
+      TASK: {implementation_task}
+      CONTEXT: {implementation_context}
+      STYLE_GUIDE: {style_guide}
+      
+      Requirements:
+      1. Match existing code style
+      2. Include documentation
+      3. Handle errors
+      4. Consider edge cases
+    variables:
+      - implementation_task
+      - implementation_context
+      - style_guide
+    description: "Prompt to generate code for a specified task while considering style and documentation."
+    category: "state"
+    version: "3.0"
+
+  code_review:
+    content: |
+      Review generated code:
+      CODE: {generated_code}
+      REQUIREMENTS: {requirements}
+      
+      Check for:
+      1. Style Compliance
+      2. Error Handling
+      3. Edge Cases
+      4. Documentation
+    variables:
+      - generated_code
+      - requirements
+    description: "Prompt for reviewing generated code for style, error handling, and compliance."
+    category: "state"
+    version: "3.0"
+
+testing_state_prompts:
+  test_generation:
+    content: |
+      Generate tests for:
+      IMPLEMENTATION: {implementation}
+      REQUIREMENTS: {requirements}
+      
+      Include tests for:
+      1. Core Functionality
+      2. Edge Cases
+      3. Error Cases
+      4. Integration Points
+    variables:
+      - implementation
+      - requirements
+    description: "Prompt to generate a comprehensive test suite for the given implementation."
+    category: "state"
+    version: "3.0"
+
+  test_analysis:
+    content: |
+      Analyze test results:
+      RESULTS: {test_results}
+      ERRORS: {error_log}
+      
+      Provide:
+      1. Failure Analysis
+      2. Required Fixes
+      3. Recovery Strategy
+    variables:
+      - test_results
+      - error_log
+    description: "Prompt to analyze test failures and propose fixes and recovery strategies."
+    category: "state"
+    version: "3.0"

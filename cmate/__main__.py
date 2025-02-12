@@ -1,10 +1,11 @@
+# ..\..\cmate\__main__.py
 #!/usr/bin/env python
 """
 Entry point for CodeMate – Your AI-Powered Code Assistant.
-This module is executed when you run:
-    python -m cmate
-or invoke the console script "cmate" installed via setup.py.
-It sets up the system and launches the interactive CLI via Typer.
+
+This module sets up the system and launches the interactive CLI via Typer.
+It also integrates the HTML logging handler so that every run automatically
+generates a visual HTML report summarizing all steps, prompts, responses, and errors.
 """
 
 import sys
@@ -16,7 +17,9 @@ import yaml
 import typer
 from rich.console import Console
 from rich.logging import RichHandler
-from typing import Optional, Dict, Any
+from typing import Optional
+from datetime import datetime
+import atexit
 
 # ----------------------------------------------------------
 # Ensure the project root is in sys.path
@@ -38,9 +41,27 @@ from cmate.utils.logger import setup_logging
 from cmate.utils.config import load_config
 from cmate.interfaces.cli_interface import CLIInterface
 
+# -------------------------------
+# Import the new HTML logging handler
+# -------------------------------
+from cmate.utils.html_logger import HTMLLogHandler
+
+# Load configuration and set up basic logging
+config = load_config()
+log_level = config.get("general", {}).get("log_level", "INFO")
+setup_logging(log_level, log_file=str(Path("logs") / "agent.log"))
+
+# Create and attach the HTML logging handler to the root logger
+html_handler = HTMLLogHandler(log_dir="logs")
+logging.getLogger().addHandler(html_handler)
+atexit.register(html_handler.close)  # Ensure the HTML log is closed on exit
+
+logger = logging.getLogger("run_main")
+logger.info("Starting CodeMate...")
+logger.success("CodeMate startup sequence initiated successfully.")
+
 app = typer.Typer(help="CodeMate - Your AI-Powered Code Assistant")
 console = Console()
-
 
 def setup_system(config_path: Optional[str] = None) -> AgentCoordinator:
     """Setup and initialize system components."""
@@ -63,8 +84,8 @@ def setup_system(config_path: Optional[str] = None) -> AgentCoordinator:
         state_manager=state_manager,
         workflow_manager=workflow_manager
     )
+    logger.success("System components initialized successfully.")
     return agent
-
 
 @app.command()
 def start(
@@ -81,10 +102,11 @@ def start(
         else:
             console.print("[green]Agent started in non-interactive mode[/green]")
             asyncio.run(agent.check_status())
+        logger.success("Agent system started successfully.")
     except Exception as e:
         console.print(f"[red]Error starting system: {str(e)}[/red]")
+        logger.error("Error starting system: %s", str(e))
         raise typer.Exit(1)
-
 
 @app.command()
 def process(
@@ -101,13 +123,15 @@ def process(
         if result.get("success"):
             console.print("[green]Request processed successfully[/green]")
             console.print(result)
+            logger.success("Request processed successfully: %s", result)
         else:
             console.print("[red]Error processing request[/red]")
             console.print(result)
+            logger.error("Error processing request: %s", result)
     except Exception as e:
         console.print(f"[red]Error processing request: {str(e)}[/red]")
+        logger.error("Error processing request: %s", str(e))
         raise typer.Exit(1)
-
 
 @app.command()
 def status(
@@ -123,17 +147,17 @@ def status(
         console.print("\nMetrics:")
         for key, value in status["metrics"].items():
             console.print(f"{key}: {value}")
+        logger.success("Agent status checked successfully.")
     except Exception as e:
         console.print(f"[red]Error checking status: {str(e)}[/red]")
+        logger.error("Error checking status: %s", str(e))
         raise typer.Exit(1)
-
 
 def main():
     """
     Main entry point called by 'python -m cmate' or 'cmate' console script.
     """
     app()
-
 
 if __name__ == "__main__":
     main()

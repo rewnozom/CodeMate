@@ -1,0 +1,35 @@
+# config/prompts/error_prompts.yaml
+# Error prompts for in-depth error analysis and recovery – version 3.0
+# These prompt templates guide the agent to perform both detailed root cause analysis and propose concrete recovery steps.
+
+error_analysis:
+  content: |
+    Analyze the following error message and provide a comprehensive report that includes:
+      1. A detailed root cause analysis identifying all relevant factors and contextual issues.
+      2. Concrete recommendations for immediate corrective actions.
+      3. Long-term prevention strategies to avoid similar errors.
+      4. Suggestions for additional tests or monitoring to ensure system stability.
+    Error details: {error_message}
+    Context: {context}
+  variables:
+    - error_message
+    - context
+  description: "Prompt for detailed error analysis, including immediate fixes and long-term prevention."
+  category: "error"
+  version: "3.0"
+
+error_recovery:
+  content: |
+    Propose a detailed recovery plan to restore the system to a functional state. Your plan should include:
+      1. Immediate actions to stabilize the system.
+      2. Steps to recover data or state if necessary.
+      3. Validation measures to confirm the success of the recovery.
+      4. Recommendations for follow-up tests and monitoring to prevent future issues.
+    Error: {error}
+    Current state: {state}
+  variables:
+    - error
+    - state
+  description: "Prompt for detailed error recovery steps covering both immediate stabilization and long-term solutions."
+  category: "error"
+  version: "3.0"

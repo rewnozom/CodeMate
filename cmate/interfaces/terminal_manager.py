@@ -1,3 +1,4 @@
+# cmate/interfaces/terminal_manager.py
 from typing import Dict, List, Optional, Any, Union
 from dataclasses import dataclass, field
 from datetime import datetime
@@ -105,10 +106,11 @@ class TerminalManager:
         Otherwise, uses the global workspace.
         """
         start_time = datetime.now()
+        # If command is a string, use it directly
         if isinstance(command, str):
-            command_list = shlex.split(command)
+            cmd_to_run = command
         else:
-            command_list = command
+            cmd_to_run = ' '.join(command)
 
         # Determine environment and working directory based on session (if any)
         env = self.default_env.copy()
@@ -123,22 +125,32 @@ class TerminalManager:
             cwd = str(session.workspace)
             proc_key = session_id  # One active command per session
         else:
-            proc_key = f"{command_list[0]}_{start_time.timestamp()}"
+            proc_key = f"{cmd_to_run}_{start_time.timestamp()}"
 
         try:
-            process = await asyncio.create_subprocess_exec(
-                *command_list,
-                stdout=asyncio.subprocess.PIPE if capture_output else None,
-                stderr=asyncio.subprocess.PIPE if capture_output else None,
-                env=env,
-                cwd=cwd
-            )
+            # Use shell execution if command is a string to support built-in commands on Windows
+            if isinstance(command, str):
+                process = await asyncio.create_subprocess_shell(
+                    cmd_to_run,
+                    stdout=asyncio.subprocess.PIPE if capture_output else None,
+                    stderr=asyncio.subprocess.PIPE if capture_output else None,
+                    env=env,
+                    cwd=cwd
+                )
+            else:
+                process = await asyncio.create_subprocess_exec(
+                    *command,
+                    stdout=asyncio.subprocess.PIPE if capture_output else None,
+                    stderr=asyncio.subprocess.PIPE if capture_output else None,
+                    env=env,
+                    cwd=cwd
+                )
             self.active_processes[proc_key] = process
             try:
                 stdout, stderr = await asyncio.wait_for(process.communicate(), timeout=timeout)
                 duration = (datetime.now() - start_time).total_seconds()
                 result = CommandResult(
-                    command=' '.join(command_list),
+                    command=cmd_to_run,
                     exit_code=process.returncode,
                     stdout=stdout.decode() if stdout else "",
                     stderr=stderr.decode() if stderr else "",
@@ -147,7 +159,7 @@ class TerminalManager:
                     pid=process.pid
                 )
                 if session_id:
-                    session.last_command = ' '.join(command_list)
+                    session.last_command = cmd_to_run
                     session.last_result = result
                     self.session_command_history[session_id].append(result)
                 else:
@@ -161,7 +173,7 @@ class TerminalManager:
         except Exception as e:
             duration = (datetime.now() - start_time).total_seconds()
             result = CommandResult(
-                command=' '.join(command_list),
+                command=cmd_to_run,
                 exit_code=-1,
                 stdout="",
                 stderr=str(e),
@@ -169,7 +181,7 @@ class TerminalManager:
                 timestamp=start_time
             )
             if session_id:
-                session.last_command = ' '.join(command_list)
+                session.last_command = cmd_to_run
                 session.last_result = result
                 self.session_command_history[session_id].append(result)
             else:

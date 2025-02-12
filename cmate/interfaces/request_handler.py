@@ -1,13 +1,12 @@
-# src/interfaces/request_handler.py
+# cmate/interfaces/request_handler.py
 from typing import Dict, List, Optional, Any, Union
 from dataclasses import dataclass, field
 from datetime import datetime
 import asyncio
-import json
 from uuid import UUID, uuid4
-from ..core.state_manager import StateManager, AgentState
-from ..core.workflow_manager import WorkflowManager
-from ..utils.logger import get_logger
+from cmate.core.state_manager import StateManager, AgentState
+from cmate.core.workflow_manager import WorkflowManager, WorkflowType
+from cmate.utils.logger import get_logger
 
 @dataclass
 class RequestContext:
@@ -116,17 +115,20 @@ class RequestHandler:
             "request_type": context.request_type
         })
         
-        # Create workflow for the request
-        workflow = await self.workflow_manager.create_workflow({
-            "type": context.request_type,
-            "data": context.content,
-            "metadata": context.metadata
-        })
+        # Create workflow for the request.
+        # Map the request type to a workflow type (for example, "analyze" maps to NAVIGATION).
+        workflow_type = self._map_request_to_workflow_type(context.request_type)
+        workflow = await self.workflow_manager.create_workflow(
+            workflow_type=workflow_type,
+            name=f"Workflow for {context.request_type}",
+            description=f"Processing request: {context.request_type}",
+            context=context.content
+        )
         
         # Execute workflow
         result = await self.workflow_manager.execute_workflow(workflow.id)
         
-        # Update state to idle (using AgentState.IDLE)
+        # Update state to idle
         self.state_manager.update_state(AgentState.IDLE)
         
         return result
@@ -137,3 +139,13 @@ class RequestHandler:
         for field in required_fields:
             if field not in request_data:
                 raise ValueError(f"Missing required field: {field}")
+
+    def _map_request_to_workflow_type(self, request_type: str):
+        """Map a request type to a workflow type"""
+        # For this example, we assume that an "analyze" request uses the NAVIGATION workflow.
+        if request_type.lower() == "analyze":
+            from cmate.core.workflow_manager import WorkflowType
+            return WorkflowType.NAVIGATION
+        # Default to IMPLEMENTATION for other types.
+        from cmate.core.workflow_manager import WorkflowType
+        return WorkflowType.IMPLEMENTATION

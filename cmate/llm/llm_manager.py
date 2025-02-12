@@ -1,9 +1,10 @@
+# cmate/llm/llm_manager.py
 """
 llm_manager.py
 
-Detta modul hanterar integrationen med olika LLM‐providers.
-Den definierar en ModelProvider‐enum, ModelConfig och ModelResponse,
-samt en LLMManager-klass som initialiserar klienter baserat på miljövariabler.
+This module manages integration with various LLM providers.
+It defines ModelProvider, ModelConfig, and ModelResponse,
+and an LLMManager class that initializes clients based on environment variables.
 """
 
 from typing import Optional, Dict, Any, Union
@@ -11,7 +12,9 @@ from enum import Enum
 import os
 from datetime import datetime
 from dotenv import load_dotenv
+import asyncio
 
+# (The following imports are examples – adjust to your actual client libraries)
 from anthropic import Anthropic
 from openai import OpenAI, AzureOpenAI
 from langchain_anthropic import ChatAnthropic
@@ -19,7 +22,6 @@ from langchain_openai import ChatOpenAI, AzureChatOpenAI
 from langchain_groq import ChatGroq
 from pydantic import BaseModel, Field
 
-# Ladda miljövariabler
 load_dotenv()
 
 class ModelProvider(Enum):
@@ -111,7 +113,7 @@ class LLMManager:
             self.clients[ModelProvider.GROQ] = ChatGroq(
                 api_key=self.api_keys[ModelProvider.GROQ]
             )
-        # För LM Studio antas klienten likna OpenAI-klienten
+        # For LM Studio, we assume the client is similar to OpenAI's client.
         self.clients[ModelProvider.LM_STUDIO] = OpenAI(
             base_url=self.models["lm-studio-local"].api_base,
             api_key=self.api_keys[ModelProvider.LM_STUDIO]
@@ -193,7 +195,9 @@ class LLMManager:
 
     async def _generate_lm_studio_response(self, messages, model_config: ModelConfig, **kwargs):
         client = self.clients[ModelProvider.LM_STUDIO]
-        return await client.chat.completions.create(
+        # Wrap the synchronous call in asyncio.to_thread
+        return await asyncio.to_thread(
+            client.chat.completions.create,
             model=model_config.model_name,
             messages=messages,
             temperature=model_config.temperature,
@@ -201,5 +205,5 @@ class LLMManager:
             **kwargs
         )
 
-# Skapa en singleton-instans för enkel åtkomst
+# Create a singleton instance for ease of use
 llm_manager = LLMManager()

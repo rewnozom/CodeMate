@@ -1,0 +1,196 @@
+# config/prompts/navigation_prompts.yaml
+# Advanced Navigation and Component Management Framework - Version 3.1
+# Enhanced templates for intelligent workspace navigation and multi-component operations
+
+navigation_analysis_prompt:
+  content: |
+    Analyze workspace navigation requirements:
+
+    CONTEXT:
+      Request: {user_request}
+      Workspace: {workspace_data}
+      State: {current_state}
+
+    Analysis Framework:
+    1. Operation Type Assessment
+       - File Modifications
+         * Content changes
+         * Structure updates
+         * Permission changes
+         * Dependency updates
+
+       - New File Requirements
+         * Component types
+         * File locations
+         * Naming conventions
+         * Required templates
+
+       - Multi-file Operations
+         * Change patterns
+         * Consistency requirements
+         * Order dependencies
+         * Rollback considerations
+
+    2. Component Analysis
+       - Target Identification
+         * Primary components
+         * Related files
+         * Configuration needs
+         * Resource dependencies
+
+       - Impact Assessment
+         * Direct changes
+         * Indirect effects
+         * Integration points
+         * Performance implications
+
+    3. Navigation Strategy
+       - Access Patterns
+         * Read operations
+         * Write operations
+         * Atomic requirements
+         * Backup needs
+
+       - Safety Measures
+         * Validation checks
+         * Backup procedures
+         * Rollback points
+         * State preservation
+
+    Available Actions:
+    {available_actions}
+
+    Provide navigation decision:
+    ANALYSIS:
+      Operations: [Required operations]
+      Components: [Affected components]
+      Impact: [Change impact]
+      
+    STRATEGY:
+      Decision: <{Navigate} action_name>
+      Priority: [High/Medium/Low]
+      Order: [Operation sequence]
+      
+    SAFETY:
+      Validation: [Required checks]
+      Backups: [Backup needs]
+      Rollback: [Rollback strategy]
+  variables:
+    - user_request
+    - workspace_data
+    - current_state
+    - available_actions
+  description: "Enhanced navigation analysis prompt with comprehensive file operation planning and safety considerations."
+  category: "navigation"
+  version: "3.1"
+
+multi_component_prompt:
+  content: |
+    Develop multi-component operation strategy:
+
+    COMPONENTS:
+    {identified_components}
+
+    Component Analysis Framework:
+    1. Dependency Mapping
+       - Direct Dependencies
+         * Required components
+         * Shared resources
+         * API contracts
+         * Configuration needs
+
+       - Indirect Dependencies
+         * Transitive requirements
+         * Resource chains
+         * Service dependencies
+         * Integration points
+
+    2. Priority Assessment
+       - Critical Path
+         * Core functionality
+         * User impact
+         * System stability
+         * Performance effects
+
+       - Resource Optimization
+         * Parallel operations
+         * Sequential requirements
+         * Resource constraints
+         * Time dependencies
+
+    3. Change Management
+       - Operation Sequencing
+         * Preparation steps
+         * Core changes
+         * Validation points
+         * Cleanup tasks
+
+       - Risk Mitigation
+         * Atomic operations
+         * Rollback procedures
+         * State management
+         * Error handling
+
+    Provide component strategy:
+    PLANNING:
+      Dependencies: [Dependency map]
+      Priority: [Component priority]
+      Timeline: [Operation timeline]
+      
+    EXECUTION:
+      Order: <{NavigateMulti} [ordered_components]>
+      Steps: [Detailed steps]
+      Validation: [Check points]
+      
+    SAFETY:
+      Atomicity: [Atomic operations]
+      Recovery: [Recovery strategy]
+      Monitoring: [Key metrics]
+  variables:
+    - identified_components
+  description: "Comprehensive multi-component operation prompt with dependency management and execution planning."
+  category: "navigation"
+  version: "3.1"
+
+workspace_validation_prompt:
+  content: |
+    Validate workspace operation results:
+
+    OPERATION:
+      Changes: {completed_changes}
+      Components: {affected_components}
+      State: {workspace_state}
+
+    Validation Framework:
+    1. Structure Verification
+       - File integrity
+       - Directory structure
+       - Permission status
+       - Resource availability
+
+    2. Component Validation
+       - Functionality checks
+       - Integration tests
+       - Performance impact
+       - Security status
+
+    3. State Assessment
+       - System stability
+       - Resource usage
+       - Service availability
+       - Error conditions
+
+    Provide validation report:
+    VALIDATION:
+      Structure: [Structure check]
+      Components: [Component status]
+      Integration: [Integration status]
+      Issues: [Found issues]
+      Actions: [Required actions]
+  variables:
+    - completed_changes
+    - affected_components
+    - workspace_state
+  description: "New workspace validation prompt ensuring integrity of navigation operations."
+  category: "navigation"
+  version: "3.1"

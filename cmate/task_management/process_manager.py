@@ -1,4 +1,4 @@
-# src/task_management/process_manager.py
+# cmate/task_management/process_manager.py
 from typing import Dict, List, Optional, Any, Union
 from dataclasses import dataclass, field
 from datetime import datetime
@@ -36,20 +36,26 @@ class ProcessManager:
                           metadata: Optional[Dict[str, Any]] = None) -> UUID:
         """Start new process"""
         if isinstance(command, str):
-            command = command.split()
-            
-        process = await asyncio.create_subprocess_exec(
-            *command,
-            stdout=asyncio.subprocess.PIPE,
-            stderr=asyncio.subprocess.PIPE,
-            cwd=str(self.workspace)
-        )
+            # Use shell to support built-in commands on Windows
+            process = await asyncio.create_subprocess_shell(
+                command,
+                stdout=asyncio.subprocess.PIPE,
+                stderr=asyncio.subprocess.PIPE,
+                cwd=str(self.workspace)
+            )
+        else:
+            process = await asyncio.create_subprocess_exec(
+                *command,
+                stdout=asyncio.subprocess.PIPE,
+                stderr=asyncio.subprocess.PIPE,
+                cwd=str(self.workspace)
+            )
         
         process_id = uuid4()
         process_info = ProcessInfo(
             id=process_id,
             name=name,
-            command=' '.join(command),
+            command=command if isinstance(command, str) else ' '.join(command),
             pid=process.pid,
             start_time=datetime.now(),
             status="running",
@@ -88,7 +94,6 @@ class ProcessManager:
             
         except psutil.NoSuchProcess:
             return False
-
 
     async def start_monitoring(self) -> None:
         """Start process monitoring"""
@@ -135,27 +140,11 @@ class ProcessManager:
         if process_id not in self.active_processes:
             raise ValueError(f"Process not found: {process_id}")
             
-        process = psutil.Process(self.active_processes[process_id].pid)
-        try:
-            stdout = []
-            stderr = []
-            
-            # Read output
-            for handler in process.open_files():
-                if 'stdout' in handler.path:
-                    with open(handler.path, 'r') as f:
-                        stdout = f.readlines()
-                elif 'stderr' in handler.path:
-                    with open(handler.path, 'r') as f:
-                        stderr = f.readlines()
-                        
-            return {
-                "stdout": ''.join(stdout),
-                "stderr": ''.join(stderr)
-            }
-            
-        except (psutil.NoSuchProcess, FileNotFoundError):
-            return {"stdout": "", "stderr": ""}
+        # In practice, you would track the output from the asyncio subprocess.
+        return {
+            "stdout": "",
+            "stderr": ""
+        }
 
     def get_active_processes(self) -> List[ProcessInfo]:
         """Get list of active processes"""

@@ -1,0 +1,88 @@
+# config/prompts/implementation_prompts.yaml
+
+implementation_planning_prompt:
+  content: |
+    Based on:
+    REQUEST: {user_request}
+    CURRENT CODE: {current_code}
+    DEPENDENCIES: {dependencies}
+
+    Create an implementation plan that includes:
+    1. Required changes
+    2. Dependency impacts
+    3. Test requirements
+    4. Potential risks
+
+    Respond with:
+    1. Analysis: [Detailed analysis]
+    2. Plan: [Step-by-step plan]
+    3. Decision: <{Implement} strategy_name>
+  variables:
+    - user_request
+    - current_code
+    - dependencies
+  description: "Prompt for creating a detailed implementation plan including required changes, dependencies, tests, and risks."
+  category: "implementation"
+  version: "3.0"
+
+code_generation_prompt:
+  content: |
+    Task: {implementation_task}
+    Current Code: {current_code}
+    Dependencies: {dependencies}
+    Requirements: {requirements}
+    Style Guide: {style_guide}
+
+    Generate the implementation following these guidelines:
+    1. Match existing code style
+    2. Include documentation
+    3. Handle errors appropriately
+    4. Consider edge cases
+
+    Respond with:
+    1. Implementation:
+    ```python
+    [Your code here]
+    ```
+    2. Explanation: [Implementation details]
+    3. Testing Notes: [What should be tested]
+  variables:
+    - implementation_task
+    - current_code
+    - dependencies
+    - requirements
+    - style_guide
+  description: "Prompt for generating code for a given task, ensuring adherence to style, documentation, and error handling."
+  category: "implementation"
+  version: "3.0"
+
+implementation_recovery_prompt:
+  content: |
+    ERROR LOG: {error_log}
+    PREVIOUS IMPLEMENTATION: {previous_code}
+    TEST RESULTS: {test_results}
+    ORIGINAL REQUEST: {user_request}
+    IMPLEMENTATION PLAN: {implementation_plan}
+
+    Analyze the failure and determine:
+    1. Root cause
+    2. Required fixes
+    3. Additional dependencies needed
+
+    Available Actions:
+    {recovery_actions}
+
+    Respond with:
+    4. Analysis: [Error analysis]
+    5. Action: <{Recover} action_name>
+    6. Changes: [Required changes]
+  variables:
+    - error_log
+    - previous_code
+    - test_results
+    - user_request
+    - implementation_plan
+    - recovery_actions
+  description: "Prompt for recovering from implementation failures by analyzing errors and proposing corrective actions."
+  category: "implementation"
+  version: "3.0"

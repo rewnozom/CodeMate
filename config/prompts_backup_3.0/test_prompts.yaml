@@ -1,0 +1,62 @@
+# config/prompts/test_prompts.yaml
+
+base_test_generation:
+  content: |
+    Generate tests for:
+    IMPLEMENTATION: {implementation_code}
+    REQUIREMENTS: {test_requirements}
+    
+    Create tests covering:
+    1. Core functionality
+    2. Edge cases
+    3. Error handling
+    4. Integration points
+    
+    Include for each test:
+    1. Test case description
+    2. Input data
+    3. Expected output
+    4. Setup requirements
+  variables:
+    - implementation_code
+    - test_requirements
+  description: "Prompt for generating comprehensive tests covering functionality, edge cases, errors, and integration."
+  category: "testing"
+  version: "3.0"
+
+coverage_gap_tests:
+  content: |
+    Generate additional tests for coverage gaps:
+    GAPS: {coverage_gaps}
+    EXISTING_TESTS: {existing_tests}
+    
+    Focus on:
+    1. Uncovered code paths
+    2. Missing edge cases
+    3. Integration scenarios
+  variables:
+    - coverage_gaps
+    - existing_tests
+  description: "Prompt for generating additional tests to cover gaps in test coverage."
+  category: "testing"
+  version: "3.0"
+
+test_failure_analysis:
+  content: |
+    Analyze test failures:
+    FAILED_TESTS: {failed_tests}
+    ERROR_LOGS: {error_logs}
+    IMPLEMENTATION: {implementation}
+    
+    Provide:
+    1. Root cause analysis
+    2. Required fixes
+    3. Implementation impact
+    4. Test updates needed
+  variables:
+    - failed_tests
+    - error_logs
+    - implementation
+  description: "Prompt for analyzing test failures and proposing fixes and improvements."
+  category: "testing"
+  version: "3.0"

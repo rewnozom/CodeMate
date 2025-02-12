@@ -1,32 +1,214 @@
 # config/prompts/workflow_prompts.yaml
-# Workflow prompts providing step-by-step guidance for planning and validating workflows
+# Advanced Workflow Management Framework - Version 3.1
+# Sophisticated templates for workflow planning, execution, and validation
 
 workflow_planning:
   content: |
-    Develop a comprehensive workflow plan that includes the following:
-      1. A clear, step-by-step description of all actions to be taken.
-      2. Identification of all dependencies between steps.
-      3. Specific validation checkpoints to ensure each step is executed correctly.
-      4. Clear objectives and measurable success criteria for the entire process.
-      5. A detailed risk analysis along with recommended mitigation measures.
-    Task description: {task}
-    Context: {context}
-  variables: ["task", "context"]
-  description: "Prompt for creating a detailed workflow plan with clear steps, dependencies, and validation points."
+    Develop comprehensive workflow strategy:
+
+    CONTEXT:
+      Task: {task}
+      Environment: {context}
+
+    Planning Framework:
+    1. Workflow Architecture
+       - Core Components
+         * Primary objectives
+         * Required resources
+         * System dependencies
+         * Integration points
+
+       - Process Flow
+         * Sequential steps
+         * Parallel operations
+         * Decision points
+         * Error handlers
+
+    2. Implementation Strategy
+       - Execution Plan
+         * Preparation tasks
+         * Core operations
+         * Validation checks
+         * Cleanup activities
+
+       - Resource Management
+         * Time estimates
+         * System resources
+         * Dependencies
+         * Constraints
+
+    3. Risk Management
+       - Risk Assessment
+         * Technical risks
+         * Resource risks
+         * Timeline risks
+         * Integration risks
+
+       - Mitigation Strategy
+         * Prevention measures
+         * Recovery plans
+         * Alternate paths
+         * Rollback procedures
+
+    4. Success Criteria
+       - Validation Points
+         * Step completion
+         * Quality checks
+         * Performance metrics
+         * Integration tests
+
+       - Acceptance Criteria
+         * Functional requirements
+         * Performance requirements
+         * Quality standards
+         * Documentation needs
+
+    Provide workflow plan:
+    PLAN:
+      Steps: [Detailed workflow steps]
+      Dependencies: [Step dependencies]
+      Timeline: [Execution timeline]
+      Resources: [Required resources]
+
+    VALIDATION:
+      Checkpoints: [Validation points]
+      Criteria: [Success criteria]
+      Metrics: [Key metrics]
+
+    RISK:
+      Analysis: [Risk assessment]
+      Mitigation: [Mitigation plans]
+      Recovery: [Recovery procedures]
+  variables:
+    - task
+    - context
+  description: "Enhanced workflow planning prompt with comprehensive strategy development and risk management."
   category: "workflow"
-  version: "2.0"
+  version: "3.1"
 
 workflow_validation:
   content: |
-    Review the completed workflow and provide a detailed validation report that covers:
-      1. Verification that all steps have been successfully completed.
-      2. Confirmation that the results meet the specified requirements and objectives.
-      3. Identification of any discrepancies or issues within the workflow.
-      4. Recommendations for improvements and risk minimization.
-      5. Suggestions for additional tests or inspections if needed.
-    Workflow: {workflow}
-    Results: {results}
-  variables: ["workflow", "results"]
-  description: "Prompt for validating a workflow with a focus on completeness, accuracy, and improvement recommendations."
+    Perform workflow validation analysis:
+
+    CONTEXT:
+      Workflow: {workflow}
+      Results: {results}
+
+    Validation Framework:
+    1. Completion Verification
+       - Step Analysis
+         * Step completion status
+         * Output validation
+         * Error conditions
+         * Performance metrics
+
+       - Dependency Check
+         * Component integration
+         * Resource usage
+         * System stability
+         * Data consistency
+
+    2. Quality Assessment
+       - Requirements Check
+         * Functional requirements
+         * Performance criteria
+         * Quality standards
+         * Documentation status
+
+       - Implementation Review
+         * Code quality
+         * Test coverage
+         * Security compliance
+         * Best practices
+
+    3. Impact Analysis
+       - System Effects
+         * Resource utilization
+         * Performance impact
+         * Integration status
+         * Stability assessment
+
+       - User Impact
+         * Functionality changes
+         * Interface updates
+         * Documentation needs
+         * Training requirements
+
+    4. Improvement Planning
+       - Enhancement Areas
+         * Process optimization
+         * Resource efficiency
+         * Error prevention
+         * Documentation updates
+
+       - Future Proofing
+         * Scalability considerations
+         * Maintenance needs
+         * Update requirements
+         * Training plans
+
+    Provide validation report:
+    VALIDATION:
+      Status: [Completion status]
+      Quality: [Quality assessment]
+      Impact: [Impact analysis]
+      Issues: [Identified issues]
+
+    RECOMMENDATIONS:
+      Improvements: [Enhancement suggestions]
+      Actions: [Required actions]
+      Updates: [Needed updates]
+      Training: [Training needs]
+
+    DOCUMENTATION:
+      Changes: [Implementation changes]
+      Lessons: [Lessons learned]
+      Notes: [Important notes]
+  variables:
+    - workflow
+    - results
+  description: "Comprehensive workflow validation prompt ensuring thorough quality assessment and improvement planning."
   category: "workflow"
-  version: "2.0"
+  version: "3.1"
+
+workflow_monitoring:
+  content: |
+    Monitor workflow execution health:
+
+    WORKFLOW:
+      Status: {workflow_status}
+      Metrics: {performance_metrics}
+      Issues: {current_issues}
+
+    Monitoring Framework:
+    1. Performance Tracking
+       - Resource usage
+       - Response times
+       - Error rates
+       - System stability
+
+    2. Health Assessment
+       - Component status
+       - Integration health
+       - Data consistency
+       - Service availability
+
+    3. Issue Detection
+       - Error patterns
+       - Performance degradation
+       - Resource constraints
+       - Integration problems
+
+    Provide monitoring report:
+    STATUS:
+      Health: [System health]
+      Performance: [Performance status]
+      Issues: [Active issues]
+      Actions: [Required actions]
+  variables:
+    - workflow_status
+    - performance_metrics
+    - current_issues
+  description: "New workflow monitoring prompt ensuring continuous health assessment during execution."
+  category: "workflow"
+  version: "3.1"

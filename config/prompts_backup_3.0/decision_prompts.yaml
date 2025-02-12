@@ -1,0 +1,62 @@
+# config/prompts/decision_prompts.yaml
+
+base_decision:
+  content: |
+    Current Context:
+    STATE: {current_state}
+    REQUEST: {user_request}
+    SYSTEM_CONTEXT: {system_context}
+    
+    Available Actions:
+    {available_actions}
+    
+    Previous Decisions:
+    {previous_decisions}
+    
+    Make a decision considering:
+    1. Current state requirements
+    2. User request goals
+    3. System constraints
+    4. Previous actions
+    
+    Respond with:
+    1. Analysis: [Your analysis]
+    2. Decision: <{Decide} action_name>
+    3. Reasoning: [Explain your choice]
+  variables:
+    - current_state
+    - user_request
+    - system_context
+    - available_actions
+    - previous_decisions
+  description: "Prompt for making a decision based on the current context, available actions, and previous decisions."
+  category: "decision"
+  version: "3.0"
+
+recovery_decision_prompt:
+  content: |
+    Error Context:
+    ERROR: {error_details}
+    PREVIOUS_DECISION: {previous_decision}
+    SYSTEM_STATE: {system_state}
+    
+    Available Recovery Actions:
+    {recovery_actions}
+    
+    Determine recovery path:
+    1. Analyze error cause
+    2. Consider alternative actions
+    3. Evaluate impact
+    
+    Respond with:
+    4. Analysis: [Error analysis]
+    5. Recovery: <{Recover} action_name>
+    6. Justification: [Explain recovery choice]
+  variables:
+    - error_details
+    - previous_decision
+    - system_state
+    - recovery_actions
+  description: "Prompt for determining a recovery decision when an error occurs."
+  category: "decision"
+  version: "3.0"
